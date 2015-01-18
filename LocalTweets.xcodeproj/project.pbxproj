@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DCED38791A6B0BCA007F1873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38781A6B0BCA007F1873 /* main.m */; };
-		DCED387C1A6B0BCA007F1873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED387B1A6B0BCA007F1873 /* AppDelegate.m */; };
-		DCED387F1A6B0BCA007F1873 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED387E1A6B0BCA007F1873 /* ViewController.m */; };
-		DCED38821A6B0BCA007F1873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCED38801A6B0BCA007F1873 /* Main.storyboard */; };
 		DCED38841A6B0BCB007F1873 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCED38831A6B0BCB007F1873 /* Images.xcassets */; };
-		DCED38871A6B0BCB007F1873 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCED38851A6B0BCB007F1873 /* LaunchScreen.xib */; };
 		DCED38931A6B0BCB007F1873 /* LocalTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38921A6B0BCB007F1873 /* LocalTweetsTests.m */; };
+		DCED38AE1A6C5F8F007F1873 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCED38AA1A6C5F8F007F1873 /* LaunchScreen.xib */; };
+		DCED38AF1A6C5F8F007F1873 /* LocalTweets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */; };
+		DCED38B01A6C5F8F007F1873 /* LocalTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38AD1A6C5F8F007F1873 /* LocalTweetsViewController.m */; };
+		DCED38B41A6C5FC2007F1873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38B31A6C5FC2007F1873 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +30,16 @@
 		DCED38731A6B0BCA007F1873 /* LocalTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCED38771A6B0BCA007F1873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCED38781A6B0BCA007F1873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DCED387A1A6B0BCA007F1873 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DCED387B1A6B0BCA007F1873 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DCED387D1A6B0BCA007F1873 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DCED387E1A6B0BCA007F1873 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DCED38811A6B0BCA007F1873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCED38831A6B0BCB007F1873 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DCED38861A6B0BCB007F1873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DCED388C1A6B0BCB007F1873 /* LocalTweetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalTweetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCED38911A6B0BCB007F1873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCED38921A6B0BCB007F1873 /* LocalTweetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalTweetsTests.m; sourceTree = "<group>"; };
+		DCED38AA1A6C5F8F007F1873 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LocalTweets.storyboard; sourceTree = "<group>"; };
+		DCED38AC1A6C5F8F007F1873 /* LocalTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTweetsViewController.h; sourceTree = "<group>"; };
+		DCED38AD1A6C5F8F007F1873 /* LocalTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTweetsViewController.m; sourceTree = "<group>"; };
+		DCED38B21A6C5FC2007F1873 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DCED38B31A6C5FC2007F1873 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +81,8 @@
 		DCED38751A6B0BCA007F1873 /* LocalTweets */ = {
 			isa = PBXGroup;
 			children = (
-				DCED387A1A6B0BCA007F1873 /* AppDelegate.h */,
-				DCED387B1A6B0BCA007F1873 /* AppDelegate.m */,
-				DCED387D1A6B0BCA007F1873 /* ViewController.h */,
-				DCED387E1A6B0BCA007F1873 /* ViewController.m */,
-				DCED38801A6B0BCA007F1873 /* Main.storyboard */,
+				DCED38A51A6C5F8F007F1873 /* Classes */,
 				DCED38831A6B0BCB007F1873 /* Images.xcassets */,
-				DCED38851A6B0BCB007F1873 /* LaunchScreen.xib */,
 				DCED38761A6B0BCA007F1873 /* Supporting Files */,
 			);
 			path = LocalTweets;
@@ -117,6 +112,59 @@
 				DCED38911A6B0BCB007F1873 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCED38A51A6C5F8F007F1873 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DCED38B11A6C5FC2007F1873 /* Application */,
+				DCED38A71A6C5F8F007F1873 /* Assembly */,
+				DCED38A61A6C5F8F007F1873 /* API */,
+				DCED38A81A6C5F8F007F1873 /* Data */,
+				DCED38A91A6C5F8F007F1873 /* Presentation */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DCED38A61A6C5F8F007F1873 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DCED38A71A6C5F8F007F1873 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		DCED38A81A6C5F8F007F1873 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DCED38A91A6C5F8F007F1873 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DCED38AA1A6C5F8F007F1873 /* LaunchScreen.xib */,
+				DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */,
+				DCED38AC1A6C5F8F007F1873 /* LocalTweetsViewController.h */,
+				DCED38AD1A6C5F8F007F1873 /* LocalTweetsViewController.m */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DCED38B11A6C5FC2007F1873 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DCED38B21A6C5FC2007F1873 /* AppDelegate.h */,
+				DCED38B31A6C5FC2007F1873 /* AppDelegate.m */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +216,11 @@
 				TargetAttributes = {
 					DCED38721A6B0BCA007F1873 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					DCED388B1A6B0BCB007F1873 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -199,8 +252,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCED38821A6B0BCA007F1873 /* Main.storyboard in Resources */,
-				DCED38871A6B0BCB007F1873 /* LaunchScreen.xib in Resources */,
+				DCED38AF1A6C5F8F007F1873 /* LocalTweets.storyboard in Resources */,
+				DCED38AE1A6C5F8F007F1873 /* LaunchScreen.xib in Resources */,
 				DCED38841A6B0BCB007F1873 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCED387F1A6B0BCA007F1873 /* ViewController.m in Sources */,
-				DCED387C1A6B0BCA007F1873 /* AppDelegate.m in Sources */,
+				DCED38B01A6C5F8F007F1873 /* LocalTweetsViewController.m in Sources */,
 				DCED38791A6B0BCA007F1873 /* main.m in Sources */,
+				DCED38B41A6C5FC2007F1873 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,25 +295,6 @@
 			targetProxy = DCED388D1A6B0BCB007F1873 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		DCED38801A6B0BCA007F1873 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DCED38811A6B0BCA007F1873 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DCED38851A6B0BCB007F1873 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DCED38861A6B0BCB007F1873 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DCED38941A6B0BCB007F1873 /* Debug */ = {
@@ -297,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -332,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -343,7 +377,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LocalTweets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +389,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LocalTweets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
