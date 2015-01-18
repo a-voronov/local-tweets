@@ -7,6 +7,7 @@
 //
 
 #import "LocalTweetsViewController.h"
+#import <TwitterKit/TwitterKit.h>
 
 @interface LocalTweetsViewController ()
 
@@ -16,7 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [[Twitter sharedInstance] logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
+        [[[Twitter sharedInstance] APIClient] loadTweetWithID:@"20" completion:^(TWTRTweet *tweet, NSError *error) {
+            TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet style:TWTRTweetViewStyleRegular];
+            [self.view addSubview:tweetView];
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

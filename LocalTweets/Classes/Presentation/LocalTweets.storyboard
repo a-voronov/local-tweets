@@ -58,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="650"/>
+            <point key="canvasLocation" x="1159" y="382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0zR-kP-izL">
@@ -79,7 +79,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ef8-fN-tZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="650"/>
+            <point key="canvasLocation" x="437" y="382"/>
         </scene>
         <!--Table-->
         <scene sceneID="B0Z-f4-RMb">
@@ -108,7 +108,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geE-Eo-LSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="1000"/>
+            <point key="canvasLocation" x="1966" y="732"/>
         </scene>
         <!--Details-->
         <scene sceneID="MsN-KN-8Bs">
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7e-4e-bji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762" y="650"/>
+            <point key="canvasLocation" x="2780" y="382"/>
         </scene>
         <!--Map-->
         <scene sceneID="p5T-N3-bNB">
@@ -188,10 +188,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gj-yX-3UM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="336"/>
+            <point key="canvasLocation" x="1966" y="68"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dfG-bJ-qvM"/>
+        <segue reference="b2N-5Q-Gir"/>
     </inferredMetricsTieBreakers>
 </document>

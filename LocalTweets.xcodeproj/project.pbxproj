@@ -14,6 +14,9 @@
 		DCED38AF1A6C5F8F007F1873 /* LocalTweets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */; };
 		DCED38B01A6C5F8F007F1873 /* LocalTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38AD1A6C5F8F007F1873 /* LocalTweetsViewController.m */; };
 		DCED38B41A6C5FC2007F1873 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38B31A6C5FC2007F1873 /* AppDelegate.m */; };
+		DCED38BA1A6C66C3007F1873 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38B71A6C66C3007F1873 /* TwitterKit.framework */; };
+		DCED38BB1A6C66C3007F1873 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */; };
+		DCED38BC1A6C66C3007F1873 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38B91A6C66C3007F1873 /* Fabric.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		DCED38AD1A6C5F8F007F1873 /* LocalTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTweetsViewController.m; sourceTree = "<group>"; };
 		DCED38B21A6C5FC2007F1873 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DCED38B31A6C5FC2007F1873 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DCED38B71A6C66C3007F1873 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		DCED38B91A6C66C3007F1873 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCED38BA1A6C66C3007F1873 /* TwitterKit.framework in Frameworks */,
+				DCED38BC1A6C66C3007F1873 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +73,7 @@
 			children = (
 				DCED38751A6B0BCA007F1873 /* LocalTweets */,
 				DCED388F1A6B0BCB007F1873 /* LocalTweetsTests */,
+				DCED38B61A6C66A7007F1873 /* Vendor */,
 				DCED38741A6B0BCA007F1873 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -167,6 +176,16 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		DCED38B61A6C66A7007F1873 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DCED38B71A6C66C3007F1873 /* TwitterKit.framework */,
+				DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */,
+				DCED38B91A6C66C3007F1873 /* Fabric.framework */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +196,7 @@
 				DCED386F1A6B0BCA007F1873 /* Sources */,
 				DCED38701A6B0BCA007F1873 /* Frameworks */,
 				DCED38711A6B0BCA007F1873 /* Resources */,
+				DCED38B51A6C65F1007F1873 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -252,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCED38BB1A6C66C3007F1873 /* TwitterKitResources.bundle in Resources */,
 				DCED38AF1A6C5F8F007F1873 /* LocalTweets.storyboard in Resources */,
 				DCED38AE1A6C5F8F007F1873 /* LaunchScreen.xib in Resources */,
 				DCED38841A6B0BCB007F1873 /* Images.xcassets in Resources */,
@@ -266,6 +287,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DCED38B51A6C65F1007F1873 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run a7116010e908b608ad19cf37142cf4079866e4e5 e6da5fa833d2624c4d8a429e4852fefafda68b9e8a16a63bced846e077888510";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DCED386F1A6B0BCA007F1873 /* Sources */ = {
@@ -378,6 +415,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LocalTweets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -390,6 +431,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LocalTweets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
