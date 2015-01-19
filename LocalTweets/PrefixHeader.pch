@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  LocalTweets
+//
+//  Created by Alexander Voronov on 19/1/15.
+//  Copyright (c) 2015 Alexander Voronov. All rights reserved.
+//
+
+#ifndef LocalTweets_PrefixHeader_pch
+#define LocalTweets_PrefixHeader_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
+#import <MapKit/MapKit.h>
+
+#endif

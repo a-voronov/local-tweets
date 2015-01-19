@@ -8,7 +8,7 @@
         <!--Local Tweets-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="LocalTweetsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocalTweetsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" customClass="LocalTweetsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -32,6 +32,9 @@
                                                 <segment title="Map"/>
                                                 <segment title="Table"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="presentationTypeSegmentedControlDidChangeValue:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Lye-nZ-Tlq"/>
+                                            </connections>
                                         </segmentedControl>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fep-Xd-fkL"/>
@@ -52,6 +55,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Local Tweets" id="c85-2B-eFh"/>
                     <connections>
+                        <outlet property="presentationContainerView" destination="r6O-D0-gtg" id="gB2-qa-obq"/>
+                        <outlet property="presentationTypeSegmentedControl" destination="AP2-Y2-VsA" id="fuu-OF-0IH"/>
                         <segue destination="1Se-9C-ZkO" kind="custom" identifier="showTableSegue" id="hVq-nR-eLd"/>
                         <segue destination="anc-6H-3OI" kind="custom" identifier="showMapSegue" id="KPH-c3-ZxW"/>
                     </connections>
@@ -84,7 +89,7 @@
         <!--Table-->
         <scene sceneID="B0Z-f4-RMb">
             <objects>
-                <tableViewController title="Table" id="1Se-9C-ZkO" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TablePresentationViewController" title="Table" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Se-9C-ZkO" customClass="TablePresentationViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cWe-yP-ArF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +166,7 @@
         <!--Map-->
         <scene sceneID="p5T-N3-bNB">
             <objects>
-                <viewController title="Map" id="anc-6H-3OI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapPresentationViewController" title="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anc-6H-3OI" customClass="MapPresentationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qto-Ub-PAq"/>
                         <viewControllerLayoutGuide type="bottom" id="cQI-2Y-aZm"/>
@@ -183,6 +188,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="v2v-W3-45z" id="Rpv-XE-3mj"/>
                         <segue destination="umJ-XW-s4g" kind="show" identifier="showMapTweetDetailsSegue" id="dfG-bJ-qvM"/>
                     </connections>
                 </viewController>
@@ -192,6 +198,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b2N-5Q-Gir"/>
+        <segue reference="dfG-bJ-qvM"/>
     </inferredMetricsTieBreakers>
 </document>

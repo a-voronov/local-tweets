@@ -10,4 +10,9 @@
 
 @interface LocalTweetsViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *presentationTypeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIView *presentationContainerView;
+
+- (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender;
+
 @end

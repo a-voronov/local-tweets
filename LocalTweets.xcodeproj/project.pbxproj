@@ -17,6 +17,9 @@
 		DCED38BA1A6C66C3007F1873 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38B71A6C66C3007F1873 /* TwitterKit.framework */; };
 		DCED38BB1A6C66C3007F1873 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */; };
 		DCED38BC1A6C66C3007F1873 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38B91A6C66C3007F1873 /* Fabric.framework */; };
+		DCED38BF1A6C7521007F1873 /* MapPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */; };
+		DCED38C21A6C7544007F1873 /* TablePresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */; };
+		DCED38C71A6C9EEC007F1873 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38C61A6C9EEC007F1873 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,12 @@
 		DCED38B71A6C66C3007F1873 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		DCED38B91A6C66C3007F1873 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		DCED38BD1A6C7521007F1873 /* MapPresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPresentationViewController.h; sourceTree = "<group>"; };
+		DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPresentationViewController.m; sourceTree = "<group>"; };
+		DCED38C01A6C7544007F1873 /* TablePresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TablePresentationViewController.h; sourceTree = "<group>"; };
+		DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablePresentationViewController.m; sourceTree = "<group>"; };
+		DCED38C51A6C9C73007F1873 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		DCED38C61A6C9EEC007F1873 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCED38BA1A6C66C3007F1873 /* TwitterKit.framework in Frameworks */,
+				DCED38C71A6C9EEC007F1873 /* MapKit.framework in Frameworks */,
 				DCED38BC1A6C66C3007F1873 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +83,7 @@
 			children = (
 				DCED38751A6B0BCA007F1873 /* LocalTweets */,
 				DCED388F1A6B0BCB007F1873 /* LocalTweetsTests */,
-				DCED38B61A6C66A7007F1873 /* Vendor */,
+				DCED38B61A6C66A7007F1873 /* Frameworks */,
 				DCED38741A6B0BCA007F1873 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +112,7 @@
 			children = (
 				DCED38771A6B0BCA007F1873 /* Info.plist */,
 				DCED38781A6B0BCA007F1873 /* main.m */,
+				DCED38C51A6C9C73007F1873 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,6 +174,10 @@
 				DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */,
 				DCED38AC1A6C5F8F007F1873 /* LocalTweetsViewController.h */,
 				DCED38AD1A6C5F8F007F1873 /* LocalTweetsViewController.m */,
+				DCED38BD1A6C7521007F1873 /* MapPresentationViewController.h */,
+				DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */,
+				DCED38C01A6C7544007F1873 /* TablePresentationViewController.h */,
+				DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -176,14 +191,15 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		DCED38B61A6C66A7007F1873 /* Vendor */ = {
+		DCED38B61A6C66A7007F1873 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCED38C61A6C9EEC007F1873 /* MapKit.framework */,
 				DCED38B71A6C66C3007F1873 /* TwitterKit.framework */,
 				DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */,
 				DCED38B91A6C66C3007F1873 /* Fabric.framework */,
 			);
-			name = Vendor;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +212,7 @@
 				DCED386F1A6B0BCA007F1873 /* Sources */,
 				DCED38701A6B0BCA007F1873 /* Frameworks */,
 				DCED38711A6B0BCA007F1873 /* Resources */,
-				DCED38B51A6C65F1007F1873 /* ShellScript */,
+				DCED38B51A6C65F1007F1873 /* Run Fabric Framework Script */,
 			);
 			buildRules = (
 			);
@@ -238,7 +254,7 @@
 						CreatedOnToolsVersion = 6.1.1;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -289,13 +305,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DCED38B51A6C65F1007F1873 /* ShellScript */ = {
+		DCED38B51A6C65F1007F1873 /* Run Fabric Framework Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Fabric Framework Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,8 +327,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCED38B01A6C5F8F007F1873 /* LocalTweetsViewController.m in Sources */,
+				DCED38C21A6C7544007F1873 /* TablePresentationViewController.m in Sources */,
 				DCED38791A6B0BCA007F1873 /* main.m in Sources */,
 				DCED38B41A6C5FC2007F1873 /* AppDelegate.m in Sources */,
+				DCED38BF1A6C7521007F1873 /* MapPresentationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +438,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = LocalTweets/PrefixHeader.pch;
 				INFOPLIST_FILE = LocalTweets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -435,6 +456,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = LocalTweets/PrefixHeader.pch;
 				INFOPLIST_FILE = LocalTweets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
