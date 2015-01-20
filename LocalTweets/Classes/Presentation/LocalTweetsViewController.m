@@ -35,9 +35,30 @@ typedef enum PresentationType {
 
 - (void)loginWithTwitter {
     [[Twitter sharedInstance] logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
-        [[[Twitter sharedInstance] APIClient] loadTweetWithID:@"20" completion:^(TWTRTweet *tweet, NSError *error) {
-//            TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet style:TWTRTweetViewStyleRegular];
-//            [self.view addSubview:tweetView];
+        NSString *url = @"https://api.twitter.com/1.1/search/tweets.json";
+        NSDictionary *params = @{
+                                 @"geocode": @"50.254646,28.658665,10km",
+                                 @"result_type" : @"recent",
+                                 @"count": @"20"
+                                 };
+        NSError *clientError;
+        NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:params error:&clientError];
+        [[[Twitter sharedInstance] APIClient] sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            NSLog(@"RESPONSE: %@", response);
+            NSLog(@"DATA: %@", data);
+
+            if (data) {
+                NSError *jsonError;
+                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+                NSString *lastTweetId = json[@"statuses"][0][@"id"];
+                [[[Twitter sharedInstance] APIClient] loadTweetWithID:lastTweetId completion:^(TWTRTweet *tweet, NSError *error) {
+                    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet style:TWTRTweetViewStyleRegular];
+                    [self.presentationContainerView addSubview:tweetView];
+                }];
+                
+            } else {
+                NSLog(@"Error: %@", connectionError);
+            }
         }];
     }];
 }
