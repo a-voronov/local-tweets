@@ -7,7 +7,9 @@
 //
 
 #import "LocalTweetsViewController.h"
-#import <TwitterKit/TwitterKit.h>
+#import "ApplicationAssembly.h"
+#import "TyphoonAutoInjection.h"
+#import "TwitterAPIManager.h"
 
 typedef enum PresentationType {
     PresentationTypeMap = 0,
@@ -17,6 +19,7 @@ typedef enum PresentationType {
 
 @interface LocalTweetsViewController ()
 
+@property (nonatomic, strong) InjectedClass(ApplicationAssembly) assembly;
 @property (nonatomic, strong) NSArray *presentationChildViewControllers;
 @property (nonatomic, strong) UIViewController *currentPresentationViewController;
 
@@ -34,19 +37,11 @@ typedef enum PresentationType {
 }
 
 - (void)loginWithTwitter {
-    [[Twitter sharedInstance] logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
-        NSString *url = @"https://api.twitter.com/1.1/search/tweets.json";
-        NSDictionary *params = @{
-                                 @"geocode": @"50.254646,28.658665,10km",
-                                 @"result_type" : @"recent",
-                                 @"count": @"20"
-                                 };
-        NSError *clientError;
-        NSURLRequest *request = [[[Twitter sharedInstance] APIClient] URLRequestWithMethod:@"GET" URL:url parameters:params error:&clientError];
-        [[[Twitter sharedInstance] APIClient] sendTwitterRequest:request completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [[self.assembly twitterApiManager] loginAsGuest:^(NSError *error) {
+        NSDictionary *locationCoords = @{ @"latitude": @(50.254646), @"longitude": @(28.658665) };
+        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(20) completion:^(NSURLResponse *response, NSData *data, NSError *error) {
             NSLog(@"RESPONSE: %@", response);
             NSLog(@"DATA: %@", data);
-
             if (data) {
                 NSError *jsonError;
                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
@@ -57,8 +52,9 @@ typedef enum PresentationType {
                 }];
                 
             } else {
-                NSLog(@"Error: %@", connectionError);
+                NSLog(@"Error: %@", error);
             }
+
         }];
     }];
 }
