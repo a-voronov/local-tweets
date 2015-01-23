@@ -41,7 +41,8 @@
         completion(nil, nil, error);
     } else {
         [[[Twitter sharedInstance] APIClient] sendTwitterRequest:urlRequest completion:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            completion(response, data, connectionError);
+            id parsedResponseData = [self parseResponse:response data:data error:connectionError];
+            completion(response, parsedResponseData, connectionError);
         }];
     }
 }
@@ -56,6 +57,10 @@
 
 - (id<TwitterRequest>)request {
     return nil;
+}
+
+- (id)parseResponse:(NSURLResponse *)response data:(NSData *)data error:(NSError *)connectionError {
+    return data;
 }
 
 @end

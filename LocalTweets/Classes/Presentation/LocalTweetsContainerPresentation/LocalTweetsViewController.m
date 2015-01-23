@@ -25,7 +25,6 @@ typedef enum PresentationType {
 @property (nonatomic, strong) InjectedProtocol(LocalTweetsViewModel) viewModel;
 @property (nonatomic, strong) NSArray *presentationChildViewControllers;
 @property (nonatomic, strong) UIViewController<TweetsPresenter> *currentPresentationViewController;
-@property (nonatomic, strong) NSArray *tweets;
 
 @end
 
@@ -34,35 +33,32 @@ typedef enum PresentationType {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tweets = @[];
     [self loginWithTwitter];
     [self setupPresentationChildViewControllers];
     self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
     [self switchToMapPresentation];
 }
 
-- (void)loginWithTwitter {
-    [self.viewModel loginAsGuest:^(NSError *error) {
-        [self.viewModel loadRecentNearestTweetsWithCompletion:^(NSArray *newTweets, NSError *error) {
-            if (error) {
-                NSLog(@"Error: %@", error);
-            } else {
-                self.tweets = newTweets;
-                [self reloadCurrentPresentationViewControllerWithRecentTweets];
-            }
+- (void)loginWithTwitter {    
+    [self.viewModel.guestLoginSignal subscribeError:^(NSError *error) {
+        NSLog(@"Error login as guest user: %@", error);
+    } completed:^{
+        [self.viewModel.frequentlyLoadRecentTweetsSignal subscribeNext:^(NSArray *tweets) {
+            [self reloadCurrentPresentationViewControllerWithRecentTweets:tweets];
+        } error:^(NSError *error) {
+            NSLog(@"Error fetching recent tweets: %@", error);
         }];
     }];
 }
 
-- (void)reloadCurrentPresentationViewControllerWithRecentTweets {
-    [self.currentPresentationViewController reloadDataWithTweets:self.tweets];
+- (void)reloadCurrentPresentationViewControllerWithRecentTweets:(NSArray *)tweets {
+    [self.currentPresentationViewController reloadDataWithTweets:tweets];
 }
 
 - (void)setupPresentationChildViewControllers {
     UIViewController *mapPresentationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapPresentationViewController"];
     UIViewController *tablePresentationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TablePresentationViewController"];
     self.presentationChildViewControllers = [[NSArray alloc] initWithObjects:mapPresentationViewController, tablePresentationViewController, nil];
-    
 }
 
 - (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender {
@@ -77,7 +73,6 @@ typedef enum PresentationType {
         default:
             break;
     }
-    [self reloadCurrentPresentationViewControllerWithRecentTweets];
 }
 
 - (void)switchToMapPresentation {
@@ -95,6 +90,7 @@ typedef enum PresentationType {
             [self hideChildViewController:self.currentPresentationViewController];
         }
         [self displayChildViewController:childViewController];
+        [self reloadCurrentPresentationViewControllerWithRecentTweets:self.viewModel.recentTweets];
     }
 }
 

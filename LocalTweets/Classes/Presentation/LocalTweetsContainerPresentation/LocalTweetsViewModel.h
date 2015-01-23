@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TwitterAPIManager.h"
 
 typedef void (^LoadRecentNearestTweetsCompletion)(NSArray *tweets, NSError *error);
 
 
 @protocol LocalTweetsViewModel <NSObject>
 
-- (void)loginAsGuest:(TwitterAPIManagerGuestLogInCompletion)completion;
-- (void)loadRecentNearestTweetsWithCompletion:(LoadRecentNearestTweetsCompletion)completion;
+@property (nonatomic, strong, readonly) RACSignal *guestLoginSignal;
+@property (nonatomic, strong, readonly) RACSignal *frequentlyLoadRecentTweetsSignal;
+@property (nonatomic, strong, readonly) NSArray *recentTweets;
 
-//@property (nonatomic, strong, readonly) NSArray *recentTweets;
 //@property (nonatomic, strong) NSString *searchRadius;
 //@property (nonatomic, strong) NSNumber *tweetsMaxCount;
 

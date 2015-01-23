@@ -257,11 +257,11 @@
 			children = (
 				DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */,
 				DC9D02811A716E13005477B4 /* LocalTweetsContainerPresentation */,
+				DCBB46BE1A71C90F00B4912D /* TweetsPresenter.h */,
 				DCED38BD1A6C7521007F1873 /* MapPresentationViewController.h */,
 				DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */,
 				DCED38C01A6C7544007F1873 /* TablePresentationViewController.h */,
 				DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */,
-				DCBB46BE1A71C90F00B4912D /* TweetsPresenter.h */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

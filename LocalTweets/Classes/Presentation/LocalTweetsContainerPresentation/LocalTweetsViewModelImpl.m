@@ -8,11 +8,15 @@
 
 #import "LocalTweetsViewModelImpl.h"
 #import "ApplicationAssembly.h"
+#import "TwitterAPIManager.h"
 
 
 @interface LocalTweetsViewModelImpl()
 
 @property (nonatomic, strong) ApplicationAssembly *assembly;
+@property (nonatomic, strong) RACSignal *guestLoginSignal;
+@property (nonatomic, strong) RACSignal *frequentlyLoadRecentTweetsSignal;
+@property (nonatomic, strong) NSArray *recentTweets;
 
 @end
 
@@ -23,32 +27,43 @@
 
 - (instancetype)initWithAssembly:(ApplicationAssembly *)anAssembly {
     self = [super init];
-    if (self) {
-        self.assembly = anAssembly;
-    }
-    return self;
-}
+    if (nil == self) return nil;
+    self.assembly = anAssembly;
 
-- (void)loginAsGuest:(TwitterAPIManagerGuestLogInCompletion)completion {
-    [[self.assembly twitterApiManager] loginAsGuest:completion];
-}
-
-- (void)loadRecentNearestTweetsWithCompletion:(LoadRecentNearestTweetsCompletion)completion {
-    NSDictionary *locationCoords = @{ @"latitude": @(50.254646), @"longitude": @(28.658665) };
-    [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(30) completion:^(NSURLResponse *response, NSData *data, NSError *error) {
-        if (data) {
-            NSError *jsonError;
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-            if (jsonError) {
-                completion(nil, jsonError);
+    @weakify(self)
+    self.guestLoginSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [[self.assembly twitterApiManager] loginAsGuest:^(NSError *error) {
+            if (error) {
+                [subscriber sendError:error];
             } else {
-                NSArray *tweets = [TWTRTweet tweetsWithJSONArray:json[@"statuses"]];
-                completion(tweets, nil);
+                [subscriber sendNext:nil];
+                [subscriber sendCompleted];
             }
-        } else {
-            completion(nil, error);
-        }
+        }];
+        return nil;
     }];
+    
+    RACSignal *loadRecentTweetsSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self)
+        NSDictionary *locationCoords = @{ @"latitude": @(50.254646), @"longitude": @(28.658665) };
+        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(30) completion:^(NSURLResponse *response, NSArray *tweets, NSError *error) {
+            if (error) {
+                [subscriber sendError:error];
+            } else {
+                self.recentTweets = tweets;
+                [subscriber sendNext:tweets];
+            }
+        }];
+        return nil;
+    }];
+    
+    self.frequentlyLoadRecentTweetsSignal = [[[[[RACSignal interval:20 onScheduler:[RACScheduler mainThreadScheduler]]
+        startWith:@[]]
+        flattenMap:^RACStream *(id value) {
+            return loadRecentTweetsSignal;
+    }] publish] autoconnect];
+    
+    return self;
 }
 
 @end

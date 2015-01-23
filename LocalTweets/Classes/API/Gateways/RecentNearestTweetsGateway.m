@@ -44,4 +44,14 @@
     return @{ @"geocode": geocode, @"result_type": @"recent", @"count": count };
 }
 
+- (id)parseResponse:(NSURLResponse *)response data:(NSData *)data error:(NSError *)connectionError {
+    NSError *jsonError;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+    if (jsonError) {
+        return @[];
+    } else {
+        return [TWTRTweet tweetsWithJSONArray:json[@"statuses"]];
+    }
+}
+
 @end

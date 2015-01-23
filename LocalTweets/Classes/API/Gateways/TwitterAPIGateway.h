@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^TwitterAPIRequestCompletion)(NSURLResponse *response, NSData *data, NSError *error);
+typedef void (^TwitterAPIRequestCompletion)(NSURLResponse *response, id data, NSError *error);
 
 
 @protocol TwitterAPIGateway <NSObject>
