@@ -8,8 +8,10 @@
 
 #import "LocalTweetsViewController.h"
 #import "ApplicationAssembly.h"
+#import "LocalTweetsViewModel.h"
 #import "TyphoonAutoInjection.h"
 #import "TwitterAPIManager.h"
+#import "TweetsPresenter.h"
 
 typedef enum PresentationType {
     PresentationTypeMap = 0,
@@ -20,8 +22,10 @@ typedef enum PresentationType {
 @interface LocalTweetsViewController ()
 
 @property (nonatomic, strong) InjectedClass(ApplicationAssembly) assembly;
+@property (nonatomic, strong) InjectedProtocol(LocalTweetsViewModel) viewModel;
 @property (nonatomic, strong) NSArray *presentationChildViewControllers;
-@property (nonatomic, strong) UIViewController *currentPresentationViewController;
+@property (nonatomic, strong) UIViewController<TweetsPresenter> *currentPresentationViewController;
+@property (nonatomic, strong) NSArray *tweets;
 
 @end
 
@@ -30,6 +34,7 @@ typedef enum PresentationType {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tweets = @[];
     [self loginWithTwitter];
     [self setupPresentationChildViewControllers];
     self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
@@ -37,26 +42,20 @@ typedef enum PresentationType {
 }
 
 - (void)loginWithTwitter {
-    [[self.assembly twitterApiManager] loginAsGuest:^(NSError *error) {
-        NSDictionary *locationCoords = @{ @"latitude": @(50.254646), @"longitude": @(28.658665) };
-        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(20) completion:^(NSURLResponse *response, NSData *data, NSError *error) {
-            NSLog(@"RESPONSE: %@", response);
-            NSLog(@"DATA: %@", data);
-            if (data) {
-                NSError *jsonError;
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-                NSString *lastTweetId = json[@"statuses"][0][@"id"];
-                [[[Twitter sharedInstance] APIClient] loadTweetWithID:lastTweetId completion:^(TWTRTweet *tweet, NSError *error) {
-                    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:tweet style:TWTRTweetViewStyleRegular];
-                    [self.presentationContainerView addSubview:tweetView];
-                }];
-                
-            } else {
+    [self.viewModel loginAsGuest:^(NSError *error) {
+        [self.viewModel loadRecentNearestTweetsWithCompletion:^(NSArray *newTweets, NSError *error) {
+            if (error) {
                 NSLog(@"Error: %@", error);
+            } else {
+                self.tweets = newTweets;
+                [self reloadCurrentPresentationViewControllerWithRecentTweets];
             }
-
         }];
     }];
+}
+
+- (void)reloadCurrentPresentationViewControllerWithRecentTweets {
+    [self.currentPresentationViewController reloadDataWithTweets:self.tweets];
 }
 
 - (void)setupPresentationChildViewControllers {
@@ -78,6 +77,7 @@ typedef enum PresentationType {
         default:
             break;
     }
+    [self reloadCurrentPresentationViewControllerWithRecentTweets];
 }
 
 - (void)switchToMapPresentation {
@@ -88,7 +88,7 @@ typedef enum PresentationType {
     [self switchToChildViewController:[self.presentationChildViewControllers objectAtIndex:PresentationTypeTable]];
 }
 
-- (void)switchToChildViewController:(UIViewController *)childViewController {
+- (void)switchToChildViewController:(UIViewController<TweetsPresenter> *)childViewController {
     if (childViewController == self.currentPresentationViewController) return;
     if (childViewController) {
         if (self.currentPresentationViewController) {
@@ -98,7 +98,7 @@ typedef enum PresentationType {
     }
 }
 
-- (void)displayChildViewController:(UIViewController *)childViewController {
+- (void)displayChildViewController:(UIViewController<TweetsPresenter> *)childViewController {
     [self addChildViewController:childViewController];
     childViewController.view.frame = [self frameForPresentationChildController];
     [self.presentationContainerView addSubview:childViewController.view];

@@ -25,6 +25,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - TweetsPresenter
+
+- (void)reloadDataWithTweets:(NSArray *)tweets {
+    
+}
+
 #pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {

@@ -8,84 +8,64 @@
 
 #import "TablePresentationViewController.h"
 
+static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
+
+
 @interface TablePresentationViewController ()
 
+@property (nonatomic, strong) NSArray *tweets;
+@property (nonatomic, strong) TWTRTweetTableViewCell *prototypeCell;
+
 @end
+
 
 @implementation TablePresentationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.estimatedRowHeight = 150;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.allowsSelection = NO;
+    [self.tableView registerClass:TWTRTweetTableViewCell.class forCellReuseIdentifier:TweetTableReuseIdentifier];
+    self.prototypeCell = [[TWTRTweetTableViewCell alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - TweetsPresenter
+
+- (void)reloadDataWithTweets:(NSArray *)newTweets {
+    self.tweets = newTweets;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.tweets count];
 }
 
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TWTRTweet *tweet = self.tweets[indexPath.row];
+    [self.prototypeCell configureWithTweet:tweet];
+    return [self.prototypeCell calculatedHeightForWidth: CGRectGetWidth(self.view.bounds)];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    TWTRTweet *tweet = self.tweets[indexPath.row];
+    TWTRTweetTableViewCell *cell = (TWTRTweetTableViewCell *)[tableView dequeueReusableCellWithIdentifier:TweetTableReuseIdentifier forIndexPath:indexPath];
+    [cell configureWithTweet:tweet];
+    cell.tweetView.delegate = self;
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+# pragma mark - TWTRTweetViewDelegate Methods
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (UIViewController *)viewControllerForPresentation {
+    return self;
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

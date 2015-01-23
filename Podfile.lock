@@ -1,12 +1,21 @@
 PODS:
+  - ReactiveCocoa (2.4.2):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.4.2):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.2)
+  - ReactiveCocoa/UI (2.4.2):
+    - ReactiveCocoa/Core
   - Typhoon (2.3.4):
     - Typhoon/no-arc
   - Typhoon/no-arc (2.3.4)
 
 DEPENDENCIES:
+  - ReactiveCocoa (= 2.4.2)
   - Typhoon (~> 2.0)
 
 SPEC CHECKSUMS:
+  ReactiveCocoa: 8418a82b67af2f1b7587baf29c329040a23c2063
   Typhoon: 57aae183beb36a386017a2cc69b18e29d7a21730
 
 COCOAPODS: 0.34.4

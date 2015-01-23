@@ -12,6 +12,8 @@
 #import "TwitterRequestImpl.h"
 #import "TwitterAPIManagerImpl.h"
 #import "RecentNearestTweetsGateway.h"
+#import "LocalTweetsViewModelImpl.h"
+
 
 @implementation ApplicationAssembly
 
@@ -48,6 +50,16 @@
             [initializer injectParameterWith:coords];
             [initializer injectParameterWith:radiusKM];
             [initializer injectParameterWith:count];
+            [initializer injectParameterWith:self];
+        }];
+    }];
+}
+
+#pragma mark - Presentation
+
+- (id<LocalTweetsViewModel>)localTweetsViewModel {
+    return [TyphoonDefinition withClass:LocalTweetsViewModelImpl.class configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(initWithAssembly:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:self];
         }];
     }];
