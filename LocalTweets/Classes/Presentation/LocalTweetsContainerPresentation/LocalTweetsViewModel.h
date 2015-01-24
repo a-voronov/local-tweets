@@ -7,17 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LocalTweetsDatasourceViewModel.h"
 
 typedef void (^LoadRecentNearestTweetsCompletion)(NSArray *tweets, NSError *error);
 
 
-@protocol LocalTweetsViewModel <NSObject>
+@protocol LocalTweetsViewModel <LocalTweetsDatasourceViewModel>
 
 @property (nonatomic, strong, readonly) RACSignal *guestLoginSignal;
 @property (nonatomic, strong, readonly) RACSignal *frequentlyLoadRecentTweetsSignal;
-@property (nonatomic, strong, readonly) NSArray *recentTweets;
 
-//@property (nonatomic, strong) NSString *searchRadius;
+//In Future can be setup in some settings
+//@property (nonatomic, strong) NSNumber *searchRadius;
 //@property (nonatomic, strong) NSNumber *tweetsMaxCount;
 
 @end

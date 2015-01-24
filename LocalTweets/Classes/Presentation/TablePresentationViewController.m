@@ -7,19 +7,21 @@
 //
 
 #import "TablePresentationViewController.h"
+#import "LocalTweetsDatasourceViewModel.h"
 
 static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 
 
 @interface TablePresentationViewController ()
 
-@property (nonatomic, strong) NSArray *tweets;
 @property (nonatomic, strong) TWTRTweetTableViewCell *prototypeCell;
 
 @end
 
 
 @implementation TablePresentationViewController
+
+@synthesize viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,13 +30,10 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     self.tableView.allowsSelection = NO;
     [self.tableView registerClass:TWTRTweetTableViewCell.class forCellReuseIdentifier:TweetTableReuseIdentifier];
     self.prototypeCell = [[TWTRTweetTableViewCell alloc] init];
-}
-
-#pragma mark - TweetsPresenter
-
-- (void)reloadDataWithTweets:(NSArray *)newTweets {
-    self.tweets = newTweets;
-    [self.tableView reloadData];
+    
+    [RACObserve(self.viewModel, tweets) subscribeNext:^(id x) {
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -44,17 +43,17 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.tweets count];
+    return [self.viewModel.tweets count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TWTRTweet *tweet = self.tweets[indexPath.row];
+    TWTRTweet *tweet = self.viewModel.tweets[indexPath.row];
     [self.prototypeCell configureWithTweet:tweet];
     return [self.prototypeCell calculatedHeightForWidth: CGRectGetWidth(self.view.bounds)];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TWTRTweet *tweet = self.tweets[indexPath.row];
+    TWTRTweet *tweet = self.viewModel.tweets[indexPath.row];
     TWTRTweetTableViewCell *cell = (TWTRTweetTableViewCell *)[tableView dequeueReusableCellWithIdentifier:TweetTableReuseIdentifier forIndexPath:indexPath];
     [cell configureWithTweet:tweet];
     cell.tweetView.delegate = self;

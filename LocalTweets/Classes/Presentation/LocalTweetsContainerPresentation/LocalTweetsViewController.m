@@ -11,7 +11,7 @@
 #import "LocalTweetsViewModel.h"
 #import "TyphoonAutoInjection.h"
 #import "TwitterAPIManager.h"
-#import "TweetsPresenter.h"
+#import "LocalTweetsPresenter.h"
 
 typedef enum PresentationType {
     PresentationTypeMap = 0,
@@ -24,7 +24,7 @@ typedef enum PresentationType {
 @property (nonatomic, strong) InjectedClass(ApplicationAssembly) assembly;
 @property (nonatomic, strong) InjectedProtocol(LocalTweetsViewModel) viewModel;
 @property (nonatomic, strong) NSArray *presentationChildViewControllers;
-@property (nonatomic, strong) UIViewController<TweetsPresenter> *currentPresentationViewController;
+@property (nonatomic, strong) UIViewController<LocalTweetsPresenter> *currentPresentationViewController;
 
 @end
 
@@ -36,65 +36,49 @@ typedef enum PresentationType {
     [self loginWithTwitter];
     [self setupPresentationChildViewControllers];
     self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
-    [self switchToMapPresentation];
+    [self switchToPresentationOfType:PresentationTypeMap];
 }
 
 - (void)loginWithTwitter {    
     [self.viewModel.guestLoginSignal subscribeError:^(NSError *error) {
+        // Show Instagram-like message with error
         NSLog(@"Error login as guest user: %@", error);
     } completed:^{
-        [self.viewModel.frequentlyLoadRecentTweetsSignal subscribeNext:^(NSArray *tweets) {
-            [self reloadCurrentPresentationViewControllerWithRecentTweets:tweets];
-        } error:^(NSError *error) {
+        [self.viewModel.frequentlyLoadRecentTweetsSignal subscribeError:^(NSError *error) {
+            // Show Instagram-like message with error
             NSLog(@"Error fetching recent tweets: %@", error);
         }];
     }];
 }
 
-- (void)reloadCurrentPresentationViewControllerWithRecentTweets:(NSArray *)tweets {
-    [self.currentPresentationViewController reloadDataWithTweets:tweets];
-}
-
 - (void)setupPresentationChildViewControllers {
-    UIViewController *mapPresentationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapPresentationViewController"];
-    UIViewController *tablePresentationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TablePresentationViewController"];
+    UIViewController<LocalTweetsPresenter> *mapPresentationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapPresentationViewController"];
+    UIViewController<LocalTweetsPresenter> *tablePresentationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TablePresentationViewController"];
+    mapPresentationViewController.viewModel = self.viewModel;
+    tablePresentationViewController.viewModel = self.viewModel;
     self.presentationChildViewControllers = [[NSArray alloc] initWithObjects:mapPresentationViewController, tablePresentationViewController, nil];
 }
 
 - (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender {
     UISegmentedControl *presentationTypeSegmentedControl = (UISegmentedControl *)sender;
-    switch (presentationTypeSegmentedControl.selectedSegmentIndex) {
-        case PresentationTypeMap:
-            [self switchToMapPresentation];
-            break;
-        case PresentationTypeTable:
-            [self switchToTablePresentation];
-            break;
-        default:
-            break;
-    }
+    [self switchToPresentationOfType:(PresentationType)presentationTypeSegmentedControl.selectedSegmentIndex];
 }
 
-- (void)switchToMapPresentation {
-    [self switchToChildViewController:[self.presentationChildViewControllers objectAtIndex:PresentationTypeMap]];
+- (void)switchToPresentationOfType:(PresentationType)presentationType {
+    [self switchToChildViewController:[self.presentationChildViewControllers objectAtIndex:presentationType]];
 }
 
-- (void)switchToTablePresentation {
-    [self switchToChildViewController:[self.presentationChildViewControllers objectAtIndex:PresentationTypeTable]];
-}
-
-- (void)switchToChildViewController:(UIViewController<TweetsPresenter> *)childViewController {
+- (void)switchToChildViewController:(UIViewController<LocalTweetsPresenter> *)childViewController {
     if (childViewController == self.currentPresentationViewController) return;
     if (childViewController) {
         if (self.currentPresentationViewController) {
             [self hideChildViewController:self.currentPresentationViewController];
         }
         [self displayChildViewController:childViewController];
-        [self reloadCurrentPresentationViewControllerWithRecentTweets:self.viewModel.recentTweets];
     }
 }
 
-- (void)displayChildViewController:(UIViewController<TweetsPresenter> *)childViewController {
+- (void)displayChildViewController:(UIViewController<LocalTweetsPresenter> *)childViewController {
     [self addChildViewController:childViewController];
     childViewController.view.frame = [self frameForPresentationChildController];
     [self.presentationContainerView addSubview:childViewController.view];

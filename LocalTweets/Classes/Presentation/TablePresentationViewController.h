@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TweetsPresenter.h"
+#import "LocalTweetsPresenter.h"
 
-@interface TablePresentationViewController : UITableViewController <TWTRTweetViewDelegate, TweetsPresenter>
+@interface TablePresentationViewController : UITableViewController <TWTRTweetViewDelegate, LocalTweetsPresenter>
 
 @end

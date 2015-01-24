@@ -64,7 +64,8 @@
 		DC9D02841A716E13005477B4 /* LocalTweetsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTweetsViewModel.h; sourceTree = "<group>"; };
 		DC9D02851A716E13005477B4 /* LocalTweetsViewModelImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTweetsViewModelImpl.h; sourceTree = "<group>"; };
 		DC9D02861A716E13005477B4 /* LocalTweetsViewModelImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTweetsViewModelImpl.m; sourceTree = "<group>"; };
-		DCBB46BE1A71C90F00B4912D /* TweetsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetsPresenter.h; sourceTree = "<group>"; };
+		DCBB46BE1A71C90F00B4912D /* LocalTweetsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalTweetsPresenter.h; sourceTree = "<group>"; };
+		DCBB46BF1A73213D00B4912D /* LocalTweetsDatasourceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalTweetsDatasourceViewModel.h; sourceTree = "<group>"; };
 		DCED38731A6B0BCA007F1873 /* LocalTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCED38771A6B0BCA007F1873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCED38781A6B0BCA007F1873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 			children = (
 				DC9D02821A716E13005477B4 /* LocalTweetsViewController.h */,
 				DC9D02831A716E13005477B4 /* LocalTweetsViewController.m */,
+				DCBB46BF1A73213D00B4912D /* LocalTweetsDatasourceViewModel.h */,
 				DC9D02841A716E13005477B4 /* LocalTweetsViewModel.h */,
 				DC9D02851A716E13005477B4 /* LocalTweetsViewModelImpl.h */,
 				DC9D02861A716E13005477B4 /* LocalTweetsViewModelImpl.m */,
@@ -257,7 +259,7 @@
 			children = (
 				DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */,
 				DC9D02811A716E13005477B4 /* LocalTweetsContainerPresentation */,
-				DCBB46BE1A71C90F00B4912D /* TweetsPresenter.h */,
+				DCBB46BE1A71C90F00B4912D /* LocalTweetsPresenter.h */,
 				DCED38BD1A6C7521007F1873 /* MapPresentationViewController.h */,
 				DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */,
 				DCED38C01A6C7544007F1873 /* TablePresentationViewController.h */,

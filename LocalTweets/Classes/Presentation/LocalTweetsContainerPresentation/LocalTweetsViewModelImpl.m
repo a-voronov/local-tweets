@@ -16,14 +16,12 @@
 @property (nonatomic, strong) ApplicationAssembly *assembly;
 @property (nonatomic, strong) RACSignal *guestLoginSignal;
 @property (nonatomic, strong) RACSignal *frequentlyLoadRecentTweetsSignal;
-@property (nonatomic, strong) NSArray *recentTweets;
+@property (nonatomic, strong) NSArray *tweets;
 
 @end
 
 
 @implementation LocalTweetsViewModelImpl
-
-//@synthesize tweetsMaxCount, searchRadius, recentTweets;
 
 - (instancetype)initWithAssembly:(ApplicationAssembly *)anAssembly {
     self = [super init];
@@ -46,12 +44,12 @@
     RACSignal *loadRecentTweetsSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self)
         NSDictionary *locationCoords = @{ @"latitude": @(50.254646), @"longitude": @(28.658665) };
-        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(30) completion:^(NSURLResponse *response, NSArray *tweets, NSError *error) {
+        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(30) completion:^(NSURLResponse *response, NSArray *recentTweets, NSError *error) {
             if (error) {
                 [subscriber sendError:error];
             } else {
-                self.recentTweets = tweets;
-                [subscriber sendNext:tweets];
+                self.tweets = recentTweets;
+                [subscriber sendNext:recentTweets];
             }
         }];
         return nil;

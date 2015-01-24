@@ -7,12 +7,17 @@
 //
 
 #import "MapPresentationViewController.h"
+#import "LocalTweetsDatasourceViewModel.h"
+
 
 @interface MapPresentationViewController ()
 
 @end
 
+
 @implementation MapPresentationViewController
+
+@synthesize viewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

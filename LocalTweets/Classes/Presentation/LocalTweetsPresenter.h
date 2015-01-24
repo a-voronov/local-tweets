@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol TweetsPresenter <NSObject>
+@protocol LocalTweetsDatasourceViewModel;
 
-- (void)reloadDataWithTweets:(NSArray *)tweets;
+
+@protocol LocalTweetsPresenter <NSObject>
+
+@property (nonatomic, strong) id<LocalTweetsDatasourceViewModel> viewModel;
 
 @end

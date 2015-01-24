@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TweetsPresenter.h"
+#import "LocalTweetsPresenter.h"
 
-@interface MapPresentationViewController : UIViewController <MKMapViewDelegate, TweetsPresenter>
+@interface MapPresentationViewController : UIViewController <MKMapViewDelegate, LocalTweetsPresenter>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
