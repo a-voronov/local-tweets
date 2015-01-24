@@ -35,6 +35,7 @@ typedef enum PresentationType {
     [super viewDidLoad];
     [self loginWithTwitter];
     [self setupPresentationChildViewControllers];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
     self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
     [self switchToPresentationOfType:PresentationTypeMap];
 }

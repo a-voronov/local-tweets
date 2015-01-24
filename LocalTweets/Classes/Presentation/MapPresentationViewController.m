@@ -10,6 +10,9 @@
 #import "LocalTweetsDatasourceViewModel.h"
 #import "Tweet.h"
 
+static NSString * const TweetMapReuseIdentifier = @"TwitterPin";
+
+
 @interface MapPresentationViewController ()
 
 @end
@@ -30,6 +33,8 @@
 }
 
 - (void)reloadData {
+    NSLog(@"RELOADING DATA");
+    // TODO: Remove all pins first
     Underscore.arrayEach(self.viewModel.tweets, ^(Tweet *tweet) {
         [self.mapView addAnnotation:[self pointForTweet:tweet]];
     });
@@ -48,6 +53,25 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     [self.mapView setRegion:MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1f, 0.1f)) animated:YES];
 }
+
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//    if ([annotation isKindOfClass:[MKUserLocation class]]) return nil;
+//    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+//        MKAnnotationView *pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:TweetMapReuseIdentifier];
+//        if (!pinView) {
+//            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:TweetMapReuseIdentifier];
+//            pinView.canShowCallout = YES;
+////            pinView.image = [UIImage imageNamed:@"me.jpg"];
+//            pinView.calloutOffset = CGPointMake(0, 42);
+//            pinView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+////            pinView.leftCalloutAccessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me.jpg"]];
+//        } else {
+//            pinView.annotation = annotation;
+//        }
+//        return pinView;
+//    }
+//    return nil;
+//}
 
 /*
 #pragma mark - Navigation
