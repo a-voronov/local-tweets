@@ -9,7 +9,7 @@
 #import "RecentNearestTweetsGateway.h"
 #import "ApplicationAssembly.h"
 #import "RequestMethod.h"
-
+#import "Tweet.h"
 
 @interface RecentNearestTweetsGateway()
 
@@ -50,7 +50,7 @@
     if (jsonError) {
         return @[];
     } else {
-        return [TWTRTweet tweetsWithJSONArray:json[@"statuses"]];
+        return [Tweet tweetsWithJSONArray:json[@"statuses"]];
     }
 }
 

@@ -15,5 +15,6 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 #import <ReactiveCocoa.h>
+#import <Underscore.h>
 
 #endif

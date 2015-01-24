@@ -10,7 +10,6 @@
 #import "ApplicationAssembly.h"
 #import "TwitterAPIManager.h"
 
-
 @interface LocalTweetsViewModelImpl()
 
 @property (nonatomic, strong) ApplicationAssembly *assembly;

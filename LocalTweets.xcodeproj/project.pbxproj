@@ -17,6 +17,7 @@
 		DC9D027A1A70A0FB005477B4 /* RecentNearestTweetsGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D02791A70A0FB005477B4 /* RecentNearestTweetsGateway.m */; };
 		DC9D02871A716E13005477B4 /* LocalTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D02831A716E13005477B4 /* LocalTweetsViewController.m */; };
 		DC9D02881A716E13005477B4 /* LocalTweetsViewModelImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D02861A716E13005477B4 /* LocalTweetsViewModelImpl.m */; };
+		DCBB46C51A732DD800B4912D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBB46C41A732DD800B4912D /* Tweet.m */; };
 		DCED38791A6B0BCA007F1873 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38781A6B0BCA007F1873 /* main.m */; };
 		DCED38841A6B0BCB007F1873 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCED38831A6B0BCB007F1873 /* Images.xcassets */; };
 		DCED38931A6B0BCB007F1873 /* LocalTweetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38921A6B0BCB007F1873 /* LocalTweetsTests.m */; };
@@ -66,6 +67,8 @@
 		DC9D02861A716E13005477B4 /* LocalTweetsViewModelImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTweetsViewModelImpl.m; sourceTree = "<group>"; };
 		DCBB46BE1A71C90F00B4912D /* LocalTweetsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalTweetsPresenter.h; sourceTree = "<group>"; };
 		DCBB46BF1A73213D00B4912D /* LocalTweetsDatasourceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalTweetsDatasourceViewModel.h; sourceTree = "<group>"; };
+		DCBB46C31A732DD800B4912D /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		DCBB46C41A732DD800B4912D /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		DCED38731A6B0BCA007F1873 /* LocalTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCED38771A6B0BCA007F1873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCED38781A6B0BCA007F1873 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 		DCED38A81A6C5F8F007F1873 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DCBB46C31A732DD800B4912D /* Tweet.h */,
+				DCBB46C41A732DD800B4912D /* Tweet.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9D02871A716E13005477B4 /* LocalTweetsViewController.m in Sources */,
+				DCBB46C51A732DD800B4912D /* Tweet.m in Sources */,
 				DCED38C21A6C7544007F1873 /* TablePresentationViewController.m in Sources */,
 				DC9D027A1A70A0FB005477B4 /* RecentNearestTweetsGateway.m in Sources */,
 				DCED38791A6B0BCA007F1873 /* main.m in Sources */,

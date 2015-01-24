@@ -8,7 +8,7 @@
 
 #import "MapPresentationViewController.h"
 #import "LocalTweetsDatasourceViewModel.h"
-
+#import "Tweet.h"
 
 @interface MapPresentationViewController ()
 
@@ -23,17 +23,24 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - TweetsPresenter
-
-- (void)reloadDataWithTweets:(NSArray *)tweets {
     
+    [RACObserve(self.viewModel, tweets) subscribeNext:^(id x) {
+        [self reloadData];
+    }];
+}
+
+- (void)reloadData {
+    Underscore.arrayEach(self.viewModel.tweets, ^(Tweet *tweet) {
+        [self.mapView addAnnotation:[self pointForTweet:tweet]];
+    });
+}
+
+- (MKPointAnnotation *)pointForTweet:(Tweet *)tweet {
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    point.coordinate = CLLocationCoordinate2DMake(tweet.latitude, tweet.longtitude);
+    point.title = tweet.author.name;
+    point.subtitle = [@"@" stringByAppendingString:tweet.author.screenName];
+    return point;
 }
 
 #pragma mark - MKMapViewDelegate
