@@ -15,6 +15,7 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 @interface TablePresentationViewController ()
 
 @property (nonatomic, strong) TWTRTweetTableViewCell *prototypeCell;
+@property (nonatomic, strong) NSMutableArray *cachedHeights;
 
 @end
 
@@ -29,9 +30,14 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.allowsSelection = NO;
     [self.tableView registerClass:TWTRTweetTableViewCell.class forCellReuseIdentifier:TweetTableReuseIdentifier];
-    self.prototypeCell = [[TWTRTweetTableViewCell alloc] init];
-    
+    self.prototypeCell = [TWTRTweetTableViewCell new];
+    self.cachedHeights = [NSMutableArray array];
+
     [RACObserve(self.viewModel, tweets) subscribeNext:^(id x) {
+        [self.cachedHeights removeAllObjects];
+        for (int i = 0; i < self.viewModel.tweets.count; i++) {
+            [self.cachedHeights addObject:[NSNull null]];
+        }
         [self.tableView reloadData];
     }];
 }
@@ -47,9 +53,14 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TWTRTweet *tweet = self.viewModel.tweets[indexPath.row];
-    [self.prototypeCell configureWithTweet:tweet];
-    return [self.prototypeCell calculatedHeightForWidth: CGRectGetWidth(self.view.bounds)];
+    // TODO: Improve perfomance of counting dynamic cell height
+    NSUInteger ix = indexPath.row;
+    if ([self.cachedHeights[ix] isEqual:[NSNull null]]) {
+        TWTRTweet *tweet = self.viewModel.tweets[indexPath.row];
+        [self.prototypeCell configureWithTweet:tweet];
+        self.cachedHeights[ix] = @([self.prototypeCell calculatedHeightForWidth: CGRectGetWidth(self.view.bounds)]);
+    }
+    return [self.cachedHeights[ix] floatValue];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

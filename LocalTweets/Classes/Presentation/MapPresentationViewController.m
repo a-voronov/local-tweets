@@ -33,7 +33,6 @@ static NSString * const TweetMapReuseIdentifier = @"TwitterPin";
 }
 
 - (void)reloadData {
-    NSLog(@"RELOADING DATA");
     // TODO: Remove all pins first
     Underscore.arrayEach(self.viewModel.tweets, ^(Tweet *tweet) {
         [self.mapView addAnnotation:[self pointForTweet:tweet]];
