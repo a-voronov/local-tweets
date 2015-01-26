@@ -22,6 +22,10 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
+
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:CLLocationCoordinate2DMake(50.254646, 28.658665) radius:10000];
+    [self.mapView addOverlay:circle];
+    
     
     [RACObserve(self.viewModel, tweets) subscribeNext:^(id x) {
         [self reloadData];
@@ -61,6 +65,18 @@
             pinView.annotation = annotation;
         }
         return pinView;
+    }
+    return nil;
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    if ([overlay isKindOfClass:MKCircle.class]) {
+        MKCircleRenderer *circleRenderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+        circleRenderer.fillColor = [UIColor colorWithRed:0.35f green:0.55f blue:0.83f alpha:0.5f];
+        circleRenderer.alpha = 0.15;
+        circleRenderer.lineWidth = 2.0;
+        circleRenderer.strokeColor = [UIColor colorWithRed:0.2f green:0.4f blue:0.66f alpha:1.0f];
+        return circleRenderer;
     }
     return nil;
 }
