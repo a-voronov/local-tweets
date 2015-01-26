@@ -26,10 +26,7 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.estimatedRowHeight = 150;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.allowsSelection = NO;
-    [self.tableView registerClass:TWTRTweetTableViewCell.class forCellReuseIdentifier:TweetTableReuseIdentifier];
+    [self setupTableView];
     self.prototypeCell = [TWTRTweetTableViewCell new];
     self.cachedHeights = [NSMutableArray array];
 
@@ -42,11 +39,14 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     }];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (void)setupTableView {
+    self.tableView.estimatedRowHeight = 150;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.allowsSelection = NO;
+    [self.tableView registerClass:TWTRTweetTableViewCell.class forCellReuseIdentifier:TweetTableReuseIdentifier];
 }
+
+#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.viewModel.tweets count];

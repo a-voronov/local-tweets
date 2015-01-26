@@ -36,9 +36,8 @@ typedef enum PresentationType {
     [super viewDidLoad];
     [self reloadData];
     [self setupPresentationChildViewControllers];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
-    self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
-    [self switchToPresentationOfType:PresentationTypeMap];
+    [self setNavigationTitleViewImage];
+    [self setMapPresentationAsDefault];
 }
 
 - (void)reloadData {
@@ -65,6 +64,17 @@ typedef enum PresentationType {
     tablePresentationViewController.viewModel = self.viewModel;
     self.presentationChildViewControllers = [[NSArray alloc] initWithObjects:mapPresentationViewController, tablePresentationViewController, nil];
 }
+
+- (void)setNavigationTitleViewImage {
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
+}
+
+- (void)setMapPresentationAsDefault {
+    self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
+    [self switchToPresentationOfType:PresentationTypeMap];
+}
+
+#pragma mark - IBAction
 
 - (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender {
     UISegmentedControl *presentationTypeSegmentedControl = (UISegmentedControl *)sender;

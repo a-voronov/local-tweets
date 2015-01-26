@@ -47,7 +47,7 @@
 }
 
 - (void)reloadData {
-    // TODO: Remove all pins first
+    [self.mapView removeAnnotations:self.mapView.annotations];
     Underscore.arrayEach(self.viewModel.tweets, ^(Tweet *tweet) {
         [self.mapView addAnnotation:[self pointForTweet:tweet]];
     });
@@ -59,10 +59,6 @@
 }
 
 #pragma mark - MKMapViewDelegate
-
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    [self.mapView setRegion:MKCoordinateRegionMake(userLocation.coordinate, MKCoordinateSpanMake(0.1f, 0.1f)) animated:YES];
-}
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(TweetAnnotation<MKAnnotation> *)annotation {
     if ([annotation isKindOfClass:MKUserLocation.class]) return nil;

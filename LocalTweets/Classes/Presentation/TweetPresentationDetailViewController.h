@@ -11,7 +11,7 @@
 
 @interface TweetPresentationDetailViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *tweetViewContainer;
+@property (weak, nonatomic) IBOutlet UIScrollView *tweetViewContainer;
 
 @property (nonatomic, strong) Tweet *tweet;
 

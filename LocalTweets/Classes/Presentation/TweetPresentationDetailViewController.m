@@ -16,18 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavigationTitleViewImage];
+    TWTRTweetView *tweetView = [self createTweetView];
+    [self adjustScrollViewContentSizeForTweetView:tweetView];
+    [self.tweetViewContainer addSubview:tweetView];
+}
+
+- (void)setNavigationTitleViewImage {
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
-    [self.tweetViewContainer addSubview:[[TWTRTweetView alloc] initWithTweet:self.tweet style:TWTRTweetViewStyleRegular]];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (TWTRTweetView *)createTweetView {
+    TWTRTweetView *tweetView = [[TWTRTweetView alloc] initWithTweet:self.tweet style:TWTRTweetViewStyleRegular];
+    tweetView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(tweetView.bounds));
+    return tweetView;
 }
-*/
+
+- (void)adjustScrollViewContentSizeForTweetView:(TWTRTweetView *)tweetView {
+    [self.tweetViewContainer setContentSize:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(tweetView.bounds))];
+}
 
 @end
