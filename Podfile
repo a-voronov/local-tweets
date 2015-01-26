@@ -7,6 +7,7 @@ target :LocalTweets do
     pod 'ReactiveCocoa', '2.4.2'
     pod 'Typhoon', '~> 2.0'
     pod 'Underscore.m', '~> 0.2.1'
+    pod 'AFNetworking', '~> 2.5.0'
 
 end
 

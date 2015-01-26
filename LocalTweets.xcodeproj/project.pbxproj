@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B30910E687F535F314DE4187 /* libPods-LocalTweets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8F5F85656CD2A888C96E87B /* libPods-LocalTweets.a */; };
+		DC63C7731A75ACFB002E3BE9 /* MapPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C76E1A75ACFB002E3BE9 /* MapPresentationViewController.m */; };
+		DC63C7791A75AD2A002E3BE9 /* TablePresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7781A75AD2A002E3BE9 /* TablePresentationViewController.m */; };
+		DC63C7811A75C17A002E3BE9 /* NSDate+HumanizedTime.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7801A75C17A002E3BE9 /* NSDate+HumanizedTime.m */; };
+		DC63C7831A75C332002E3BE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC63C7821A75C332002E3BE9 /* Localizable.strings */; };
+		DC63C7851A75C3AF002E3BE9 /* Localizable_full.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC63C7841A75C3AF002E3BE9 /* Localizable_full.strings */; };
+		DC63C78E1A75C57B002E3BE9 /* TweetAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7881A75C57B002E3BE9 /* TweetAnnotation.m */; };
+		DC63C78F1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78B1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m */; };
+		DC63C7901A75C57B002E3BE9 /* TweetAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */; };
 		DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */; };
 		DC9D02611A708A5C005477B4 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC9D02601A708A5C005477B4 /* Configuration.plist */; };
 		DC9D02731A709CC7005477B4 /* TwitterAPIGatewayImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D026A1A709CC7005477B4 /* TwitterAPIGatewayImpl.m */; };
@@ -26,8 +34,6 @@
 		DCED38BA1A6C66C3007F1873 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38B71A6C66C3007F1873 /* TwitterKit.framework */; };
 		DCED38BB1A6C66C3007F1873 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */; };
 		DCED38BC1A6C66C3007F1873 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38B91A6C66C3007F1873 /* Fabric.framework */; };
-		DCED38BF1A6C7521007F1873 /* MapPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */; };
-		DCED38C21A6C7544007F1873 /* TablePresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */; };
 		DCED38C71A6C9EEC007F1873 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCED38C61A6C9EEC007F1873 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +50,20 @@
 /* Begin PBXFileReference section */
 		3984387DB9B40B7A9DE93155 /* Pods-LocalTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalTweets.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocalTweets/Pods-LocalTweets.release.xcconfig"; sourceTree = "<group>"; };
 		C8F5F85656CD2A888C96E87B /* libPods-LocalTweets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LocalTweets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC63C76D1A75ACFB002E3BE9 /* MapPresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPresentationViewController.h; sourceTree = "<group>"; };
+		DC63C76E1A75ACFB002E3BE9 /* MapPresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPresentationViewController.m; sourceTree = "<group>"; };
+		DC63C7771A75AD2A002E3BE9 /* TablePresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TablePresentationViewController.h; sourceTree = "<group>"; };
+		DC63C7781A75AD2A002E3BE9 /* TablePresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablePresentationViewController.m; sourceTree = "<group>"; };
+		DC63C77F1A75C17A002E3BE9 /* NSDate+HumanizedTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HumanizedTime.h"; sourceTree = "<group>"; };
+		DC63C7801A75C17A002E3BE9 /* NSDate+HumanizedTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HumanizedTime.m"; sourceTree = "<group>"; };
+		DC63C7821A75C332002E3BE9 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		DC63C7841A75C3AF002E3BE9 /* Localizable_full.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable_full.strings; sourceTree = "<group>"; };
+		DC63C7871A75C57B002E3BE9 /* TweetAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnnotation.h; sourceTree = "<group>"; };
+		DC63C7881A75C57B002E3BE9 /* TweetAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetAnnotation.m; sourceTree = "<group>"; };
+		DC63C78A1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+AFNetworking.h"; sourceTree = "<group>"; };
+		DC63C78B1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+AFNetworking.m"; sourceTree = "<group>"; };
+		DC63C78C1A75C57B002E3BE9 /* TweetAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnnotationView.h; sourceTree = "<group>"; };
+		DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetAnnotationView.m; sourceTree = "<group>"; };
 		DC9D025B1A708A2B005477B4 /* ApplicationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationAssembly.h; sourceTree = "<group>"; };
 		DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationAssembly.m; sourceTree = "<group>"; };
 		DC9D02601A708A5C005477B4 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -82,10 +102,6 @@
 		DCED38B71A6C66C3007F1873 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		DCED38B91A6C66C3007F1873 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		DCED38BD1A6C7521007F1873 /* MapPresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPresentationViewController.h; sourceTree = "<group>"; };
-		DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPresentationViewController.m; sourceTree = "<group>"; };
-		DCED38C01A6C7544007F1873 /* TablePresentationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TablePresentationViewController.h; sourceTree = "<group>"; };
-		DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablePresentationViewController.m; sourceTree = "<group>"; };
 		DCED38C51A6C9C73007F1873 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		DCED38C61A6C9EEC007F1873 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F0D404343BB029F2A2947A71 /* Pods-LocalTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocalTweets.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocalTweets/Pods-LocalTweets.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +136,65 @@
 				3984387DB9B40B7A9DE93155 /* Pods-LocalTweets.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC63C76C1A75ACFB002E3BE9 /* LocalTweetsMapPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C76D1A75ACFB002E3BE9 /* MapPresentationViewController.h */,
+				DC63C76E1A75ACFB002E3BE9 /* MapPresentationViewController.m */,
+				DC63C7891A75C57B002E3BE9 /* AnnotationView */,
+				DC63C7861A75C57B002E3BE9 /* Annotation */,
+			);
+			path = LocalTweetsMapPresentation;
+			sourceTree = "<group>";
+		};
+		DC63C7761A75AD2A002E3BE9 /* LocalTweetsTablePresentation */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C7771A75AD2A002E3BE9 /* TablePresentationViewController.h */,
+				DC63C7781A75AD2A002E3BE9 /* TablePresentationViewController.m */,
+			);
+			path = LocalTweetsTablePresentation;
+			sourceTree = "<group>";
+		};
+		DC63C77D1A75C15F002E3BE9 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C77E1A75C15F002E3BE9 /* SEHumanizedTimeDiff */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		DC63C77E1A75C15F002E3BE9 /* SEHumanizedTimeDiff */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C77F1A75C17A002E3BE9 /* NSDate+HumanizedTime.h */,
+				DC63C7801A75C17A002E3BE9 /* NSDate+HumanizedTime.m */,
+				DC63C7821A75C332002E3BE9 /* Localizable.strings */,
+				DC63C7841A75C3AF002E3BE9 /* Localizable_full.strings */,
+			);
+			path = SEHumanizedTimeDiff;
+			sourceTree = "<group>";
+		};
+		DC63C7861A75C57B002E3BE9 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C7871A75C57B002E3BE9 /* TweetAnnotation.h */,
+				DC63C7881A75C57B002E3BE9 /* TweetAnnotation.m */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
+		DC63C7891A75C57B002E3BE9 /* AnnotationView */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C78C1A75C57B002E3BE9 /* TweetAnnotationView.h */,
+				DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */,
+				DC63C78A1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.h */,
+				DC63C78B1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m */,
+			);
+			path = AnnotationView;
 			sourceTree = "<group>";
 		};
 		DC9D02671A709CC7005477B4 /* Gateways */ = {
@@ -184,6 +259,7 @@
 			children = (
 				DCED38A51A6C5F8F007F1873 /* Classes */,
 				DCED38831A6B0BCB007F1873 /* Images.xcassets */,
+				DC63C77D1A75C15F002E3BE9 /* External */,
 				DCED38761A6B0BCA007F1873 /* Supporting Files */,
 			);
 			path = LocalTweets;
@@ -263,12 +339,10 @@
 			isa = PBXGroup;
 			children = (
 				DCED38AB1A6C5F8F007F1873 /* LocalTweets.storyboard */,
-				DC9D02811A716E13005477B4 /* LocalTweetsContainerPresentation */,
 				DCBB46BE1A71C90F00B4912D /* LocalTweetsPresenter.h */,
-				DCED38BD1A6C7521007F1873 /* MapPresentationViewController.h */,
-				DCED38BE1A6C7521007F1873 /* MapPresentationViewController.m */,
-				DCED38C01A6C7544007F1873 /* TablePresentationViewController.h */,
-				DCED38C11A6C7544007F1873 /* TablePresentationViewController.m */,
+				DC9D02811A716E13005477B4 /* LocalTweetsContainerPresentation */,
+				DC63C76C1A75ACFB002E3BE9 /* LocalTweetsMapPresentation */,
+				DC63C7761A75AD2A002E3BE9 /* LocalTweetsTablePresentation */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -382,7 +456,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC63C7831A75C332002E3BE9 /* Localizable.strings in Resources */,
 				DCED38BB1A6C66C3007F1873 /* TwitterKitResources.bundle in Resources */,
+				DC63C7851A75C3AF002E3BE9 /* Localizable_full.strings in Resources */,
 				DC9D02611A708A5C005477B4 /* Configuration.plist in Resources */,
 				DCED38AF1A6C5F8F007F1873 /* LocalTweets.storyboard in Resources */,
 				DCED38841A6B0BCB007F1873 /* Images.xcassets in Resources */,
@@ -451,18 +527,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC9D02871A716E13005477B4 /* LocalTweetsViewController.m in Sources */,
+				DC63C7791A75AD2A002E3BE9 /* TablePresentationViewController.m in Sources */,
+				DC63C78F1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m in Sources */,
 				DCBB46C51A732DD800B4912D /* Tweet.m in Sources */,
-				DCED38C21A6C7544007F1873 /* TablePresentationViewController.m in Sources */,
+				DC63C7901A75C57B002E3BE9 /* TweetAnnotationView.m in Sources */,
 				DC9D027A1A70A0FB005477B4 /* RecentNearestTweetsGateway.m in Sources */,
 				DCED38791A6B0BCA007F1873 /* main.m in Sources */,
 				DCED38B41A6C5FC2007F1873 /* AppDelegate.m in Sources */,
 				DC9D02741A709CC7005477B4 /* RequestMethod.m in Sources */,
+				DC63C7731A75ACFB002E3BE9 /* MapPresentationViewController.m in Sources */,
 				DC9D02731A709CC7005477B4 /* TwitterAPIGatewayImpl.m in Sources */,
+				DC63C78E1A75C57B002E3BE9 /* TweetAnnotation.m in Sources */,
 				DC9D02761A709CC7005477B4 /* TwitterAPIManagerImpl.m in Sources */,
 				DC9D02751A709CC7005477B4 /* TwitterRequestImpl.m in Sources */,
+				DC63C7811A75C17A002E3BE9 /* NSDate+HumanizedTime.m in Sources */,
 				DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */,
 				DC9D02881A716E13005477B4 /* LocalTweetsViewModelImpl.m in Sources */,
-				DCED38BF1A6C7521007F1873 /* MapPresentationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +669,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
