@@ -16,6 +16,8 @@
 		DC63C78E1A75C57B002E3BE9 /* TweetAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7881A75C57B002E3BE9 /* TweetAnnotation.m */; };
 		DC63C78F1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78B1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m */; };
 		DC63C7901A75C57B002E3BE9 /* TweetAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */; };
+		DC63C7921A75D838002E3BE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC63C7911A75D838002E3BE9 /* CoreLocation.framework */; };
+		DC63C7951A7615A7002E3BE9 /* TweetPresentationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */; };
 		DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */; };
 		DC9D02611A708A5C005477B4 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC9D02601A708A5C005477B4 /* Configuration.plist */; };
 		DC9D02731A709CC7005477B4 /* TwitterAPIGatewayImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D026A1A709CC7005477B4 /* TwitterAPIGatewayImpl.m */; };
@@ -64,6 +66,9 @@
 		DC63C78B1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+AFNetworking.m"; sourceTree = "<group>"; };
 		DC63C78C1A75C57B002E3BE9 /* TweetAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnnotationView.h; sourceTree = "<group>"; };
 		DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetAnnotationView.m; sourceTree = "<group>"; };
+		DC63C7911A75D838002E3BE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DC63C7931A7615A7002E3BE9 /* TweetPresentationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetPresentationDetailViewController.h; sourceTree = "<group>"; };
+		DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetPresentationDetailViewController.m; sourceTree = "<group>"; };
 		DC9D025B1A708A2B005477B4 /* ApplicationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationAssembly.h; sourceTree = "<group>"; };
 		DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationAssembly.m; sourceTree = "<group>"; };
 		DC9D02601A708A5C005477B4 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC63C7921A75D838002E3BE9 /* CoreLocation.framework in Frameworks */,
 				DCED38BA1A6C66C3007F1873 /* TwitterKit.framework in Frameworks */,
 				DCED38C71A6C9EEC007F1873 /* MapKit.framework in Frameworks */,
 				DCED38BC1A6C66C3007F1873 /* Fabric.framework in Frameworks */,
@@ -343,6 +349,8 @@
 				DC9D02811A716E13005477B4 /* LocalTweetsContainerPresentation */,
 				DC63C76C1A75ACFB002E3BE9 /* LocalTweetsMapPresentation */,
 				DC63C7761A75AD2A002E3BE9 /* LocalTweetsTablePresentation */,
+				DC63C7931A7615A7002E3BE9 /* TweetPresentationDetailViewController.h */,
+				DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -359,6 +367,7 @@
 		DCED38B61A6C66A7007F1873 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC63C7911A75D838002E3BE9 /* CoreLocation.framework */,
 				DCED38C61A6C9EEC007F1873 /* MapKit.framework */,
 				DCED38B71A6C66C3007F1873 /* TwitterKit.framework */,
 				DCED38B81A6C66C3007F1873 /* TwitterKitResources.bundle */,
@@ -541,6 +550,7 @@
 				DC9D02761A709CC7005477B4 /* TwitterAPIManagerImpl.m in Sources */,
 				DC9D02751A709CC7005477B4 /* TwitterRequestImpl.m in Sources */,
 				DC63C7811A75C17A002E3BE9 /* NSDate+HumanizedTime.m in Sources */,
+				DC63C7951A7615A7002E3BE9 /* TweetPresentationDetailViewController.m in Sources */,
 				DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */,
 				DC9D02881A716E13005477B4 /* LocalTweetsViewModelImpl.m in Sources */,
 			);

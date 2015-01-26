@@ -77,14 +77,8 @@ static NSString * const TweetTableReuseIdentifier = @"TwitterCell";
     return self;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tweetView:(TWTRTweetView *)tweetView didSelectTweet:(TWTRTweet *)tweet {
+    [self.parentViewController performSegueWithIdentifier:@"showTableTweetDetailsSegue" sender:tweet];
 }
-*/
 
 @end

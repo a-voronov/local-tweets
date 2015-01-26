@@ -12,7 +12,7 @@
 @class ApplicationAssembly;
 
 
-@interface LocalTweetsViewModelImpl : NSObject <LocalTweetsViewModel>
+@interface LocalTweetsViewModelImpl : NSObject <LocalTweetsViewModel, CLLocationManagerDelegate>
 
 - (instancetype)initWithAssembly:(ApplicationAssembly *)assembly;
 

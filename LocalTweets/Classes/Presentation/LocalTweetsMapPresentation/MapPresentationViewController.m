@@ -13,6 +13,12 @@
 #import "TweetAnnotationView.h"
 #import "Tweet.h"
 
+@interface MapPresentationViewController()
+
+@property (nonatomic, strong) MKCircle *circle;
+
+@end
+
 
 @implementation MapPresentationViewController
 
@@ -21,13 +27,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
-    self.mapView.showsUserLocation = YES;
-
-    MKCircle *circle = [MKCircle circleWithCenterCoordinate:CLLocationCoordinate2DMake(50.254646, 28.658665) radius:10000];
-    [self.mapView addOverlay:circle];
     
+    [RACObserve(self.viewModel, locationAuthStatus) subscribeNext:^(id x) {
+        self.mapView.showsUserLocation = YES;
+    } error:^(NSError *error) {
+        self.mapView.showsUserLocation = NO;
+    }];
     
-    [RACObserve(self.viewModel, tweets) subscribeNext:^(id x) {
+    @weakify(self)
+    [[RACSignal combineLatest:@[RACObserve(self.viewModel, tweets), [RACObserve(self.viewModel, location) distinctUntilChanged]] reduce:^id (id x, CLLocation *location) {
+        return location;
+    }] subscribeNext:^(CLLocation *location) {
+        @strongify(self)
+        [self.mapView removeOverlay:self.circle];
+        self.circle = [MKCircle circleWithCenterCoordinate:location.coordinate radius:10000];
+        [self.mapView addOverlay:self.circle];
         [self reloadData];
     }];
 }
@@ -81,14 +95,9 @@
     return nil;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    TweetAnnotation *annotation = view.annotation;
+    [self.parentViewController performSegueWithIdentifier:@"showMapTweetDetailsSegue" sender:annotation.tweet];
 }
-*/
 
 @end

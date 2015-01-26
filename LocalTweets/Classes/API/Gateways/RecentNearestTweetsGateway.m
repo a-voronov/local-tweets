@@ -45,6 +45,7 @@
 }
 
 - (id)parseResponse:(NSURLResponse *)response data:(NSData *)data error:(NSError *)connectionError {
+    if (nil == data) return @[];
     NSError *jsonError;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
     if (jsonError) {

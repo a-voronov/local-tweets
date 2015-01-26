@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView *presentationContainerView;
 
 - (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender;
+- (IBAction)onRefreshButtonTap:(id)sender;
 
 @end

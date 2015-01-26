@@ -11,5 +11,7 @@
 @protocol LocalTweetsDatasourceViewModel <NSObject>
 
 @property (nonatomic, strong, readonly) NSArray *tweets;
+@property (nonatomic, strong, readonly) CLLocation *location;
+@property (nonatomic, assign, readonly) CLAuthorizationStatus locationAuthStatus;
 
 @end

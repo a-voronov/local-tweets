@@ -8,6 +8,7 @@ target :LocalTweets do
     pod 'Typhoon', '~> 2.0'
     pod 'Underscore.m', '~> 0.2.1'
     pod 'AFNetworking', '~> 2.5.0'
+    pod 'YRDropdownView', '~> 0.0.1'
 
 end
 

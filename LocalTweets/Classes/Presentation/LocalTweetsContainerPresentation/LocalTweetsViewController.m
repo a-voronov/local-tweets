@@ -12,7 +12,8 @@
 #import "TyphoonAutoInjection.h"
 #import "TwitterAPIManager.h"
 #import "LocalTweetsPresenter.h"
-
+#import "YRDropdownView.h"
+#import "TweetPresentationDetailViewController.h"
 typedef enum PresentationType {
     PresentationTypeMap = 0,
     PresentationTypeTable
@@ -33,23 +34,28 @@ typedef enum PresentationType {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loginWithTwitter];
+    [self reloadData];
     [self setupPresentationChildViewControllers];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
     self.presentationTypeSegmentedControl.selectedSegmentIndex = PresentationTypeMap;
     [self switchToPresentationOfType:PresentationTypeMap];
 }
 
-- (void)loginWithTwitter {    
+- (void)reloadData {
     [self.viewModel.guestLoginSignal subscribeError:^(NSError *error) {
-        // Show Instagram-like message with error
-        NSLog(@"Error login as guest user: %@", error);
+        [self showErrorWithMessage:error.localizedDescription];
     } completed:^{
+        [self.viewModel.locationSignal subscribeError:^(NSError *error) {
+            [self showErrorWithMessage:error.localizedDescription];
+        }];
         [self.viewModel.frequentlyLoadRecentTweetsSignal subscribeError:^(NSError *error) {
-            // Show Instagram-like message with error
-            NSLog(@"Error fetching recent tweets: %@", error);
+            [self showErrorWithMessage:error.localizedDescription];
         }];
     }];
+}
+
+- (void)showErrorWithMessage:(NSString *)message {
+    [YRDropdownView showDropdownInView:self.presentationContainerView title:message detail:nil image:nil animated:YES hideAfter:3.0f];
 }
 
 - (void)setupPresentationChildViewControllers {
@@ -63,6 +69,10 @@ typedef enum PresentationType {
 - (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender {
     UISegmentedControl *presentationTypeSegmentedControl = (UISegmentedControl *)sender;
     [self switchToPresentationOfType:(PresentationType)presentationTypeSegmentedControl.selectedSegmentIndex];
+}
+
+- (IBAction)onRefreshButtonTap:(id)sender {
+    [self reloadData];
 }
 
 - (void)switchToPresentationOfType:(PresentationType)presentationType {
@@ -97,14 +107,10 @@ typedef enum PresentationType {
     return self.presentationContainerView.bounds;
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(Tweet *)sender {
+    ((TweetPresentationDetailViewController *)[segue destinationViewController]).tweet = sender;
 }
-*/
 
 @end

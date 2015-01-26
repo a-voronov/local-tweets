@@ -16,6 +16,7 @@ typedef void (^LoadRecentNearestTweetsCompletion)(NSArray *tweets, NSError *erro
 
 @property (nonatomic, strong, readonly) RACSignal *guestLoginSignal;
 @property (nonatomic, strong, readonly) RACSignal *frequentlyLoadRecentTweetsSignal;
+@property (nonatomic, strong, readonly) RACSignal *locationSignal;
 
 //In Future can be setup in some settings
 //@property (nonatomic, strong) NSNumber *searchRadius;

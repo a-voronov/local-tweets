@@ -31,17 +31,20 @@ PODS:
     - Typhoon/no-arc
   - Typhoon/no-arc (2.3.4)
   - Underscore.m (0.2.1)
+  - YRDropdownView (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
   - ReactiveCocoa (= 2.4.2)
   - Typhoon (~> 2.0)
   - Underscore.m (~> 0.2.1)
+  - YRDropdownView (~> 0.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   ReactiveCocoa: 8418a82b67af2f1b7587baf29c329040a23c2063
   Typhoon: 57aae183beb36a386017a2cc69b18e29d7a21730
   Underscore.m: f99c166a9fdccfb5069085b6b4263c04b817fc9f
+  YRDropdownView: e70bf5ba14aabf534d07ce8eb24101a9f4da62cf
 
 COCOAPODS: 0.34.4
