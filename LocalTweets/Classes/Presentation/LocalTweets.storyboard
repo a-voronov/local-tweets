@@ -79,10 +79,16 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="GhJ-5Z-ivh" id="QSS-Y4-1B2"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="hu5-i1-CUA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ef8-fN-tZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="GhJ-5Z-ivh" customClass="NavigationControllerDelegate">
+                    <connections>
+                        <outlet property="navigationController" destination="YMO-dS-0DV" id="dhw-wm-gRy"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="437" y="382"/>
         </scene>

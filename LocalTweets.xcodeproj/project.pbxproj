@@ -17,9 +17,12 @@
 		DC63C78F1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78B1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m */; };
 		DC63C7901A75C57B002E3BE9 /* TweetAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */; };
 		DC63C7921A75D838002E3BE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC63C7911A75D838002E3BE9 /* CoreLocation.framework */; };
-		DC63C7951A7615A7002E3BE9 /* TweetPresentationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */; };
 		DC63C7971A771ECA002E3BE9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63C7961A771ECA002E3BE9 /* Settings.bundle */; };
 		DC63C79B1A772559002E3BE9 /* AppSettingsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C79A1A772559002E3BE9 /* AppSettingsImpl.m */; };
+		DC63C7A61A774445002E3BE9 /* TweetPresentationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7A51A774445002E3BE9 /* TweetPresentationDetailViewController.m */; };
+		DC63C7AA1A77447A002E3BE9 /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7A91A77447A002E3BE9 /* NavigationControllerDelegate.m */; };
+		DC63C7AD1A7744C1002E3BE9 /* NavigationPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7AC1A7744C1002E3BE9 /* NavigationPopAnimator.m */; };
+		DC63C7B01A7744D0002E3BE9 /* NavigationPushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7AF1A7744D0002E3BE9 /* NavigationPushAnimator.m */; };
 		DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */; };
 		DC9D02611A708A5C005477B4 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC9D02601A708A5C005477B4 /* Configuration.plist */; };
 		DC9D02731A709CC7005477B4 /* TwitterAPIGatewayImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D026A1A709CC7005477B4 /* TwitterAPIGatewayImpl.m */; };
@@ -69,12 +72,18 @@
 		DC63C78C1A75C57B002E3BE9 /* TweetAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetAnnotationView.h; sourceTree = "<group>"; };
 		DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetAnnotationView.m; sourceTree = "<group>"; };
 		DC63C7911A75D838002E3BE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		DC63C7931A7615A7002E3BE9 /* TweetPresentationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetPresentationDetailViewController.h; sourceTree = "<group>"; };
-		DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetPresentationDetailViewController.m; sourceTree = "<group>"; };
 		DC63C7961A771ECA002E3BE9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DC63C7991A772559002E3BE9 /* AppSettingsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingsImpl.h; sourceTree = "<group>"; };
 		DC63C79A1A772559002E3BE9 /* AppSettingsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingsImpl.m; sourceTree = "<group>"; };
 		DC63C79C1A772770002E3BE9 /* AppSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
+		DC63C7A41A774445002E3BE9 /* TweetPresentationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetPresentationDetailViewController.h; sourceTree = "<group>"; };
+		DC63C7A51A774445002E3BE9 /* TweetPresentationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetPresentationDetailViewController.m; sourceTree = "<group>"; };
+		DC63C7A81A77447A002E3BE9 /* NavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControllerDelegate.h; sourceTree = "<group>"; };
+		DC63C7A91A77447A002E3BE9 /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
+		DC63C7AB1A7744C1002E3BE9 /* NavigationPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationPopAnimator.h; sourceTree = "<group>"; };
+		DC63C7AC1A7744C1002E3BE9 /* NavigationPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationPopAnimator.m; sourceTree = "<group>"; };
+		DC63C7AE1A7744D0002E3BE9 /* NavigationPushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationPushAnimator.h; sourceTree = "<group>"; };
+		DC63C7AF1A7744D0002E3BE9 /* NavigationPushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationPushAnimator.m; sourceTree = "<group>"; };
 		DC9D025B1A708A2B005477B4 /* ApplicationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationAssembly.h; sourceTree = "<group>"; };
 		DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationAssembly.m; sourceTree = "<group>"; };
 		DC9D02601A708A5C005477B4 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -217,6 +226,28 @@
 				DC63C79A1A772559002E3BE9 /* AppSettingsImpl.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		DC63C7A31A774445002E3BE9 /* TweetDetailPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C7A41A774445002E3BE9 /* TweetPresentationDetailViewController.h */,
+				DC63C7A51A774445002E3BE9 /* TweetPresentationDetailViewController.m */,
+			);
+			path = TweetDetailPresentation;
+			sourceTree = "<group>";
+		};
+		DC63C7A71A774465002E3BE9 /* NavigationTransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C7A81A77447A002E3BE9 /* NavigationControllerDelegate.h */,
+				DC63C7A91A77447A002E3BE9 /* NavigationControllerDelegate.m */,
+				DC63C7AE1A7744D0002E3BE9 /* NavigationPushAnimator.h */,
+				DC63C7AF1A7744D0002E3BE9 /* NavigationPushAnimator.m */,
+				DC63C7AB1A7744C1002E3BE9 /* NavigationPopAnimator.h */,
+				DC63C7AC1A7744C1002E3BE9 /* NavigationPopAnimator.m */,
+			);
+			path = NavigationTransitionAnimation;
 			sourceTree = "<group>";
 		};
 		DC9D02671A709CC7005477B4 /* Gateways */ = {
@@ -367,8 +398,8 @@
 				DC9D02811A716E13005477B4 /* LocalTweetsContainerPresentation */,
 				DC63C76C1A75ACFB002E3BE9 /* LocalTweetsMapPresentation */,
 				DC63C7761A75AD2A002E3BE9 /* LocalTweetsTablePresentation */,
-				DC63C7931A7615A7002E3BE9 /* TweetPresentationDetailViewController.h */,
-				DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */,
+				DC63C7A31A774445002E3BE9 /* TweetDetailPresentation */,
+				DC63C7A71A774465002E3BE9 /* NavigationTransitionAnimation */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -554,6 +585,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC63C7AD1A7744C1002E3BE9 /* NavigationPopAnimator.m in Sources */,
+				DC63C7AA1A77447A002E3BE9 /* NavigationControllerDelegate.m in Sources */,
 				DC9D02871A716E13005477B4 /* LocalTweetsViewController.m in Sources */,
 				DC63C7791A75AD2A002E3BE9 /* TablePresentationViewController.m in Sources */,
 				DC63C78F1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m in Sources */,
@@ -569,10 +602,11 @@
 				DC63C78E1A75C57B002E3BE9 /* TweetAnnotation.m in Sources */,
 				DC9D02761A709CC7005477B4 /* TwitterAPIManagerImpl.m in Sources */,
 				DC9D02751A709CC7005477B4 /* TwitterRequestImpl.m in Sources */,
+				DC63C7A61A774445002E3BE9 /* TweetPresentationDetailViewController.m in Sources */,
 				DC63C7811A75C17A002E3BE9 /* NSDate+HumanizedTime.m in Sources */,
-				DC63C7951A7615A7002E3BE9 /* TweetPresentationDetailViewController.m in Sources */,
 				DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */,
 				DC9D02881A716E13005477B4 /* LocalTweetsViewModelImpl.m in Sources */,
+				DC63C7B01A7744D0002E3BE9 /* NavigationPushAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
