@@ -34,21 +34,23 @@ typedef enum PresentationType {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self reloadData];
+    [self startLoadingData];
     [self setupPresentationChildViewControllers];
     [self setNavigationTitleViewImage];
     [self setMapPresentationAsDefault];
 }
 
-- (void)reloadData {
+- (void)startLoadingData {
     [self.viewModel.guestLoginSignal subscribeError:^(NSError *error) {
         [self showErrorWithMessage:error.localizedDescription];
     } completed:^{
         [self.viewModel.locationSignal subscribeError:^(NSError *error) {
             [self showErrorWithMessage:error.localizedDescription];
         }];
-        [self.viewModel.frequentlyLoadRecentTweetsSignal subscribeError:^(NSError *error) {
-            [self showErrorWithMessage:error.localizedDescription];
+        [self.viewModel.frequentlyLoadRecentTweetsSignal subscribeNext:^(id x) {
+            if ([x isKindOfClass:NSError.class]) {
+                [self showErrorWithMessage:((NSError *)x).localizedDescription];
+            }
         }];
     }];
 }
@@ -79,10 +81,6 @@ typedef enum PresentationType {
 - (IBAction)presentationTypeSegmentedControlDidChangeValue:(id)sender {
     UISegmentedControl *presentationTypeSegmentedControl = (UISegmentedControl *)sender;
     [self switchToPresentationOfType:(PresentationType)presentationTypeSegmentedControl.selectedSegmentIndex];
-}
-
-- (IBAction)onRefreshButtonTap:(id)sender {
-    [self reloadData];
 }
 
 - (void)switchToPresentationOfType:(PresentationType)presentationType {

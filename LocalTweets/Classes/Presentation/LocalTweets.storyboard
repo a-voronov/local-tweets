@@ -23,11 +23,6 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afa-h2-hM6">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="refresh" id="x4F-Zq-SDd">
-                                        <connections>
-                                            <action selector="onRefreshButtonTap:" destination="vXZ-lx-hvc" id="pBW-AE-Iun"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nuI-Cr-UqK"/>
                                     <barButtonItem style="plain" id="rDN-MR-zeV">
                                         <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" id="AP2-Y2-VsA">

@@ -54,20 +54,23 @@
         NSDictionary *locationCoords = @{ @"latitude": @(self.location.coordinate.latitude), @"longitude": @(self.location.coordinate.longitude) };
         [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(30) completion:^(NSURLResponse *response, NSArray *recentTweets, NSError *error) {
             if (error) {
-                [subscriber sendError:error];
+                [subscriber sendNext:error];
             } else {
                 self.tweets = recentTweets;
                 [subscriber sendNext:recentTweets];
             }
+            [subscriber sendCompleted];
         }];
         return nil;
     }];
-    
+
     self.frequentlyLoadRecentTweetsSignal = [[[[[RACSignal interval:20 onScheduler:[RACScheduler mainThreadScheduler]]
         startWith:@[]]
         flattenMap:^RACStream *(id value) {
             return loadRecentTweetsSignal;
-    }] publish] autoconnect];
+        }]
+        publish]
+        autoconnect];
 
     self.locationSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         self.locationSignalSubscriber = subscriber;
