@@ -12,7 +12,7 @@
 @protocol TwitterRequest;
 @protocol TwitterAPIGateway;
 @protocol LocalTweetsViewModel;
-
+@protocol AppSettings;
 
 @interface ApplicationAssembly : TyphoonAssembly
 
@@ -20,5 +20,6 @@
 - (id<TwitterRequest>)twitterRequestWithApiMethod:(NSString *)apiMethod requestMethod:(NSString *)requestMethod params:(NSDictionary *)params;
 - (id<TwitterAPIGateway>)recentNearestTweetsGatewayWithLocationCoords:(NSDictionary *)coords radiusKM:(NSNumber *)radiusKM count:(NSNumber *)count;
 - (id<LocalTweetsViewModel>)localTweetsViewModel;
+- (id<AppSettings>)appSettings;
 
 @end

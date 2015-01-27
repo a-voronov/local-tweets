@@ -8,14 +8,18 @@
 
 #import "MapPresentationViewController.h"
 #import "MKAnnotationView+AFNetworking.h"
+#import "TyphoonAutoInjection.h"
 #import "LocalTweetsDatasourceViewModel.h"
 #import "TweetAnnotation.h"
 #import "TweetAnnotationView.h"
 #import "Tweet.h"
+#import "AppSettings.h"
+
 
 @interface MapPresentationViewController()
 
 @property (nonatomic, strong) MKCircle *circle;
+@property (nonatomic, strong) InjectedProtocol(AppSettings) settings;
 
 @end
 
@@ -40,7 +44,7 @@
     }] subscribeNext:^(CLLocation *location) {
         @strongify(self)
         [self.mapView removeOverlay:self.circle];
-        self.circle = [MKCircle circleWithCenterCoordinate:location.coordinate radius:10000];
+        self.circle = [MKCircle circleWithCenterCoordinate:location.coordinate radius:[self.settings searchRadiusKM].integerValue * 1000];
         [self.mapView addOverlay:self.circle];
         [self reloadData];
     }];

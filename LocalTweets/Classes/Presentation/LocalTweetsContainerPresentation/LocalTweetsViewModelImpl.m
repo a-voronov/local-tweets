@@ -7,8 +7,10 @@
 //
 
 #import "LocalTweetsViewModelImpl.h"
+#import "TyphoonAutoInjection.h"
 #import "ApplicationAssembly.h"
 #import "TwitterAPIManager.h"
+#import "AppSettings.h"
 
 @interface LocalTweetsViewModelImpl()
 
@@ -52,7 +54,11 @@
     RACSignal *loadRecentTweetsSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self)
         NSDictionary *locationCoords = @{ @"latitude": @(self.location.coordinate.latitude), @"longitude": @(self.location.coordinate.longitude) };
-        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords radius:@(10) count:@(30) completion:^(NSURLResponse *response, NSArray *recentTweets, NSError *error) {
+        [[self.assembly twitterApiManager] getRecentNearestTweetsInLocation:locationCoords
+                                                                     radius:[[self.assembly appSettings] searchRadiusKM]
+                                                                      count:[[self.assembly appSettings] numberOfTweets]
+                                                                 completion:^(NSURLResponse *response, NSArray *recentTweets, NSError *error)
+        {
             if (error) {
                 [subscriber sendNext:error];
             } else {
@@ -63,8 +69,8 @@
         }];
         return nil;
     }];
-
-    self.frequentlyLoadRecentTweetsSignal = [[[[[RACSignal interval:20 onScheduler:[RACScheduler mainThreadScheduler]]
+    
+    self.frequentlyLoadRecentTweetsSignal = [[[[[RACSignal interval:[[self.assembly appSettings] pollFrequencySec].integerValue onScheduler:[RACScheduler mainThreadScheduler]]
         startWith:@[]]
         flattenMap:^RACStream *(id value) {
             return loadRecentTweetsSignal;
@@ -78,7 +84,9 @@
         if (![self isStatusSuccessful:currentStatus]) {
             [self handleErrorStatuses:currentStatus];
         }
-        [self.locationManager requestWhenInUseAuthorization];
+        if ([[self.assembly appSettings] currentIOSVersion].floatValue >= 8.0) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
         return nil;
     }];
 

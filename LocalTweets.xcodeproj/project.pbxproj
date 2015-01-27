@@ -18,6 +18,8 @@
 		DC63C7901A75C57B002E3BE9 /* TweetAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C78D1A75C57B002E3BE9 /* TweetAnnotationView.m */; };
 		DC63C7921A75D838002E3BE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC63C7911A75D838002E3BE9 /* CoreLocation.framework */; };
 		DC63C7951A7615A7002E3BE9 /* TweetPresentationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */; };
+		DC63C7971A771ECA002E3BE9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DC63C7961A771ECA002E3BE9 /* Settings.bundle */; };
+		DC63C79B1A772559002E3BE9 /* AppSettingsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC63C79A1A772559002E3BE9 /* AppSettingsImpl.m */; };
 		DC9D025D1A708A2B005477B4 /* ApplicationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */; };
 		DC9D02611A708A5C005477B4 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC9D02601A708A5C005477B4 /* Configuration.plist */; };
 		DC9D02731A709CC7005477B4 /* TwitterAPIGatewayImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9D026A1A709CC7005477B4 /* TwitterAPIGatewayImpl.m */; };
@@ -69,6 +71,10 @@
 		DC63C7911A75D838002E3BE9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DC63C7931A7615A7002E3BE9 /* TweetPresentationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetPresentationDetailViewController.h; sourceTree = "<group>"; };
 		DC63C7941A7615A7002E3BE9 /* TweetPresentationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetPresentationDetailViewController.m; sourceTree = "<group>"; };
+		DC63C7961A771ECA002E3BE9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		DC63C7991A772559002E3BE9 /* AppSettingsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettingsImpl.h; sourceTree = "<group>"; };
+		DC63C79A1A772559002E3BE9 /* AppSettingsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettingsImpl.m; sourceTree = "<group>"; };
+		DC63C79C1A772770002E3BE9 /* AppSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
 		DC9D025B1A708A2B005477B4 /* ApplicationAssembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationAssembly.h; sourceTree = "<group>"; };
 		DC9D025C1A708A2B005477B4 /* ApplicationAssembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationAssembly.m; sourceTree = "<group>"; };
 		DC9D02601A708A5C005477B4 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -203,6 +209,16 @@
 			path = AnnotationView;
 			sourceTree = "<group>";
 		};
+		DC63C7981A77253F002E3BE9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DC63C79C1A772770002E3BE9 /* AppSettings.h */,
+				DC63C7991A772559002E3BE9 /* AppSettingsImpl.h */,
+				DC63C79A1A772559002E3BE9 /* AppSettingsImpl.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DC9D02671A709CC7005477B4 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +293,7 @@
 				DCED38771A6B0BCA007F1873 /* Info.plist */,
 				DCED38781A6B0BCA007F1873 /* main.m */,
 				DCED38C51A6C9C73007F1873 /* PrefixHeader.pch */,
+				DC63C7961A771ECA002E3BE9 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,6 +323,7 @@
 				DCED38A61A6C5F8F007F1873 /* API */,
 				DCED38A81A6C5F8F007F1873 /* Data */,
 				DCED38A91A6C5F8F007F1873 /* Presentation */,
+				DC63C7981A77253F002E3BE9 /* Common */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -471,6 +489,7 @@
 				DC9D02611A708A5C005477B4 /* Configuration.plist in Resources */,
 				DCED38AF1A6C5F8F007F1873 /* LocalTweets.storyboard in Resources */,
 				DCED38841A6B0BCB007F1873 /* Images.xcassets in Resources */,
+				DC63C7971A771ECA002E3BE9 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +557,7 @@
 				DC9D02871A716E13005477B4 /* LocalTweetsViewController.m in Sources */,
 				DC63C7791A75AD2A002E3BE9 /* TablePresentationViewController.m in Sources */,
 				DC63C78F1A75C57B002E3BE9 /* MKAnnotationView+AFNetworking.m in Sources */,
+				DC63C79B1A772559002E3BE9 /* AppSettingsImpl.m in Sources */,
 				DCBB46C51A732DD800B4912D /* Tweet.m in Sources */,
 				DC63C7901A75C57B002E3BE9 /* TweetAnnotationView.m in Sources */,
 				DC9D027A1A70A0FB005477B4 /* RecentNearestTweetsGateway.m in Sources */,

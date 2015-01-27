@@ -13,7 +13,7 @@
 #import "TwitterAPIManagerImpl.h"
 #import "RecentNearestTweetsGateway.h"
 #import "LocalTweetsViewModelImpl.h"
-
+#import "AppSettingsImpl.h"
 
 @implementation ApplicationAssembly
 
@@ -62,6 +62,17 @@
         [definition useInitializer:@selector(initWithAssembly:) parameters:^(TyphoonMethod *initializer) {
             [initializer injectParameterWith:self];
         }];
+    }];
+}
+
+#pragma mark - Common
+
+- (id<AppSettings>)appSettings {
+    return [TyphoonDefinition withClass:AppSettingsImpl.class configuration:^(TyphoonDefinition *definition) {
+        [definition useInitializer:@selector(initWithUserDefaults:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[NSUserDefaults standardUserDefaults]];
+        }];
+        definition.scope = TyphoonScopeSingleton;
     }];
 }
 
